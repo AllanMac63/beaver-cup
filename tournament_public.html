@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tournament Information</title>
+    
+    <!-- Mobile App Icons -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIiB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiI+CiAgPCEtLSBCYWNrZ3JvdW5kIC0tPgogIDxjaXJjbGUgY3g9IjI1NiIgY3k9IjI1NiIgcj0iMjU2IiBmaWxsPSIjMWUzYThhIi8+CiAgCiAgPCEtLSBDTUUgTGFuZHNjYXBlIGF0IGJvdHRvbSAtLT4KICA8IS0tIE1vdW50YWluIHNpbGhvdWV0dGVzIC0tPgogIDxwYXRoIGQ9Ik0gMCA0NTAgTCAxMDAgMzUwIEwgMjAwIDQyMCBMIDI1MCAzNzAgTCAzMDAgNDEwIEwgNDAwIDMzMCBMIDUxMiA0MDAgTCA1MTIgNTEyIEwgMCA1MTIgWiIgCiAgICAgICAgZmlsbD0iIzBjNGE2ZSIgb3BhY2l0eT0iMC44Ii8+CiAgPHBhdGggZD0iTSAwIDQ3MCBMIDgwIDQwMCBMIDE1MCA0NDAgTCAyMjAgMzkwIEwgMjgwIDQzMCBMIDM1MCAzNzAgTCA0NTAgNDIwIEwgNTEyIDM4MCBMIDUxMiA1MTIgTCAwIDUxMiBaIiAKICAgICAgICBmaWxsPSIjMDc1OTg1IiBvcGFjaXR5PSIwLjkiLz4KICAKICA8IS0tIEZvcmVncm91bmQgbW91bnRhaW5zIC0tPgogIDxwYXRoIGQ9Ik0gMCA0OTAgTCA2MCA0NDAgTCAxMjAgNDcwIEwgMTgwIDQzMCBMIDI0MCA0NjAgTCAzMDAgNDIwIEwgMzYwIDQ1MCBMIDQyMCA0MTAgTCA0ODAgNDQ1IEwgNTEyIDQzMCBMIDUxMiA1MTIgTCAwIDUxMiBaIiAKICAgICAgICBmaWxsPSIjMDM2OWExIi8+CiAgCiAgPCEtLSBUcmVlcy9mb3Jlc3Qgc2lsaG91ZXR0ZXMgLS0+CiAgPGVsbGlwc2UgY3g9IjgwIiBjeT0iNDgwIiByeD0iMzAiIHJ5PSIyNSIgZmlsbD0iIzA2NGUzYiIgb3BhY2l0eT0iMC43Ii8+CiAgPGVsbGlwc2UgY3g9IjE0MCIgY3k9IjQ4NSIgcng9IjI1IiByeT0iMjAiIGZpbGw9IiMwNjRlM2IiIG9wYWNpdHk9IjAuNyIvPgogIDxlbGxpcHNlIGN4PSIyMDAiIGN5PSI0NzgiIHJ4PSIzNSIgcnk9IjI4IiBmaWxsPSIjMDY0ZTNiIiBvcGFjaXR5PSIwLjciLz4KICA8ZWxsaXBzZSBjeD0iMjcwIiBjeT0iNDgyIiByeD0iMjgiIHJ5PSIyMiIgZmlsbD0iIzA2NGUzYiIgb3BhY2l0eT0iMC43Ii8+CiAgPGVsbGlwc2UgY3g9IjM0MCIgY3k9IjQ3NiIgcng9IjMyIiByeT0iMjYiIGZpbGw9IiMwNjRlM2IiIG9wYWNpdHk9IjAuNyIvPgogIDxlbGxpcHNlIGN4PSI0MTAiIGN5PSI0ODAiIHJ4PSIyNiIgcnk9IjIxIiBmaWxsPSIjMDY0ZTNiIiBvcGFjaXR5PSIwLjciLz4KICAKICA8IS0tIEJlYXZlciBTaWxob3VldHRlIChwcm9maWxlIHZpZXcsIGJlaGluZCB0cm9waHkpIC0tPgogIDxnIG9wYWNpdHk9IjAuMyIgZmlsbD0iIzAwMCI+CiAgICA8IS0tIEJlYXZlciBib2R5IHNpbGhvdWV0dGUgLS0+CiAgICA8ZWxsaXBzZSBjeD0iMjU2IiBjeT0iMjQwIiByeD0iMTAwIiByeT0iMTEwIi8+CiAgICAKICAgIDwhLS0gQmVhdmVyIGhlYWQgKHByb2ZpbGUpIC0tPgogICAgPGVsbGlwc2UgY3g9IjIwMCIgY3k9IjE4MCIgcng9IjcwIiByeT0iNzUiLz4KICAgIAogICAgPCEtLSBFYXIgLS0+CiAgICA8ZWxsaXBzZSBjeD0iMTg1IiBjeT0iMTM1IiByeD0iMjAiIHJ5PSIyOCIvPgogICAgCiAgICA8IS0tIFNub3V0L25vc2UgYXJlYSAtLT4KICAgIDxlbGxpcHNlIGN4PSIxNjAiIGN5PSIxOTAiIHJ4PSIzNSIgcnk9IjI1Ii8+CiAgICAKICAgIDwhLS0gRnJvbnQgdG9vdGggKHZpc2libGUgaW4gcHJvZmlsZSkgLS0+CiAgICA8cmVjdCB4PSIxNDUiIHk9IjIwMCIgd2lkdGg9IjEwIiBoZWlnaHQ9IjIwIiBmaWxsPSIjMjIyIiByeD0iMiIvPgogICAgCiAgICA8IS0tIEJlYXZlciB0YWlsIC0tPgogICAgPGVsbGlwc2UgY3g9IjMyMCIgY3k9IjMxMCIgcng9IjcwIiByeT0iNDUiIHRyYW5zZm9ybT0icm90YXRlKC0yMCAzMjAgMzEwKSIvPgogICAgCiAgICA8IS0tIEZyb250IHBhdyAtLT4KICAgIDxlbGxpcHNlIGN4PSIyMDAiIGN5PSIzMDAiIHJ4PSIyNSIgcnk9IjM1Ii8+CiAgICAKICAgIDwhLS0gQmFjayBwYXcgLS0+CiAgICA8ZWxsaXBzZSBjeD0iMjgwIiBjeT0iMzIwIiByeD0iMjgiIHJ5PSIzOCIvPgogIDwvZz4KICAKICA8IS0tIENoYW1waW9uIFRyb3BoeSAoZ29sZGVuLCBmcm9udCBhbmQgY2VudGVyKSAtLT4KICA8IS0tIFRyb3BoeSBiYXNlIC0tPgogIDxyZWN0IHg9IjIxNiIgeT0iMzgwIiB3aWR0aD0iODAiIGhlaWdodD0iMTUiIGZpbGw9IiM5ZDZiMDAiIHJ4PSIzIi8+CiAgPHJlY3QgeD0iMjIwIiB5PSIzNjUiIHdpZHRoPSI3MiIgaGVpZ2h0PSIxNSIgZmlsbD0iI2I4N2QwMCIgcng9IjIiLz4KICAKICA8IS0tIFRyb3BoeSBzdGVtIC0tPgogIDxyZWN0IHg9IjI0MCIgeT0iMjkwIiB3aWR0aD0iMzIiIGhlaWdodD0iNzUiIGZpbGw9IiNkNGEwMTciIHJ4PSI0Ii8+CiAgPHJlY3QgeD0iMjQyIiB5PSIyOTIiIHdpZHRoPSIyOCIgaGVpZ2h0PSI3MSIgZmlsbD0iI2Y0YzQzMCIgcng9IjMiLz4KICAKICA8IS0tIFRyb3BoeSBoYW5kbGVzIC0tPgogIDwhLS0gTGVmdCBoYW5kbGUgLS0+CiAgPHBhdGggZD0iTSAyMTUgMjUwIFEgMTk1IDI2MCAxOTUgMjg1IFEgMTk1IDMwMCAyMTAgMzA1IEwgMjIwIDMwMCBRIDIxMCAyOTUgMjEwIDI4NSBRIDIxMCAyNjggMjI1IDI2MCBaIiAKICAgICAgICBmaWxsPSIjZDRhMDE3Ii8+CiAgPHBhdGggZD0iTSAyMTcgMjUyIFEgMjAwIDI2MSAyMDAgMjg1IFEgMjAwIDI5NyAyMTMgMzAyIEwgMjIwIDI5OCBRIDIxMyAyOTMgMjEzIDI4NSBRIDIxMyAyNzAgMjI2IDI2MiBaIiAKICAgICAgICBmaWxsPSIjZjRjNDMwIi8+CiAgCiAgPCEtLSBSaWdodCBoYW5kbGUgLS0+CiAgPHBhdGggZD0iTSAyOTcgMjUwIFEgMzE3IDI2MCAzMTcgMjg1IFEgMzE3IDMwMCAzMDIgMzA1IEwgMjkyIDMwMCBRIDMwMiAyOTUgMzAyIDI4NSBRIDMwMiAyNjggMjg3IDI2MCBaIiAKICAgICAgICBmaWxsPSIjZDRhMDE3Ii8+CiAgPHBhdGggZD0iTSAyOTUgMjUyIFEgMzEyIDI2MSAzMTIgMjg1IFEgMzEyIDI5NyAyOTkgMzAyIEwgMjkyIDI5OCBRIDI5OSAyOTMgMjk5IDI4NSBRIDI5OSAyNzAgMjg2IDI2MiBaIiAKICAgICAgICBmaWxsPSIjZjRjNDMwIi8+CiAgCiAgPCEtLSBUcm9waHkgY3VwIGJvZHkgLS0+CiAgPHBhdGggZD0iTSAyMjAgMjUwIEwgMjIwIDE5MCBRIDIyMCAxNzAgMjQwIDE2NSBMIDI3MiAxNjUgUSAyOTIgMTcwIDI5MiAxOTAgTCAyOTIgMjUwIFEgMjkyIDI2NSAyODAgMjcwIEwgMjMyIDI3MCBRIDIyMCAyNjUgMjIwIDI1MCBaIiAKICAgICAgICBmaWxsPSIjZDRhMDE3Ii8+CiAgPHBhdGggZD0iTSAyMjQgMjUwIEwgMjI0IDE5MiBRIDIyNCAxNzUgMjQyIDE3MCBMIDI3MCAxNzAgUSAyODggMTc1IDI4OCAxOTIgTCAyODggMjUwIFEgMjg4IDI2MiAyNzggMjY2IEwgMjM0IDI2NiBRIDIyNCAyNjIgMjI0IDI1MCBaIiAKICAgICAgICBmaWxsPSIjZjRjNDMwIi8+CiAgCiAgPCEtLSBUcm9waHkgY3VwIHJpbSAtLT4KICA8ZWxsaXBzZSBjeD0iMjU2IiBjeT0iMTY1IiByeD0iMzYiIHJ5PSIxMiIgZmlsbD0iI2Q0YTAxNyIvPgogIDxlbGxpcHNlIGN4PSIyNTYiIGN5PSIxNjUiIHJ4PSIzMiIgcnk9IjEwIiBmaWxsPSIjZmZkNzAwIi8+CiAgCiAgPCEtLSBUcm9waHkgc2hpbmUvaGlnaGxpZ2h0cyAtLT4KICA8ZWxsaXBzZSBjeD0iMjQwIiBjeT0iMjAwIiByeD0iOCIgcnk9IjI1IiBmaWxsPSIjZmZmIiBvcGFjaXR5PSIwLjQiLz4KICA8ZWxsaXBzZSBjeD0iMjY1IiBjeT0iMjE1IiByeD0iNiIgcnk9IjIwIiBmaWxsPSIjZmZmIiBvcGFjaXR5PSIwLjMiLz4KICAKICA8IS0tIFRyb3BoeSBkZWNvcmF0aXZlIGJhbmRzIC0tPgogIDxyZWN0IHg9IjIyNCIgeT0iMTk1IiB3aWR0aD0iNjQiIGhlaWdodD0iMyIgZmlsbD0iI2I4N2QwMCIgb3BhY2l0eT0iMC42Ii8+CiAgPHJlY3QgeD0iMjI0IiB5PSIyMjAiIHdpZHRoPSI2NCIgaGVpZ2h0PSIzIiBmaWxsPSIjYjg3ZDAwIiBvcGFjaXR5PSIwLjYiLz4KICA8cmVjdCB4PSIyMjQiIHk9IjI0NSIgd2lkdGg9IjY0IiBoZWlnaHQ9IjMiIGZpbGw9IiNiODdkMDAiIG9wYWNpdHk9IjAuNiIvPgogIAogIDwhLS0gVHJvcGh5IGVuZ3JhdmluZ3MgKHNtYWxsIGxpbmVzKSAtLT4KICA8bGluZSB4MT0iMjQ1IiB5MT0iMjA1IiB4Mj0iMjY3IiB5Mj0iMjA1IiBzdHJva2U9IiM5ZDZiMDAiIHN0cm9rZS13aWR0aD0iMSIgb3BhY2l0eT0iMC41Ii8+CiAgPGxpbmUgeDE9IjI0MyIgeTE9IjIxMCIgeDI9IjI2OSIgeTI9IjIxMCIgc3Ryb2tlPSIjOWQ2YjAwIiBzdHJva2Utd2lkdGg9IjEiIG9wYWNpdHk9IjAuNSIvPgogIDxsaW5lIHgxPSIyNDUiIHkxPSIyMzAiIHgyPSIyNjciIHkyPSIyMzAiIHN0cm9rZT0iIzlkNmIwMCIgc3Ryb2tlLXdpZHRoPSIxIiBvcGFjaXR5PSIwLjUiLz4KICA8bGluZSB4MT0iMjQzIiB5MT0iMjM1IiB4Mj0iMjY5IiB5Mj0iMjM1IiBzdHJva2U9IiM5ZDZiMDAiIHN0cm9rZS13aWR0aD0iMSIgb3BhY2l0eT0iMC41Ii8+CiAgCiAgPCEtLSBTdGFyIG9uIHRyb3BoeSAtLT4KICA8cGF0aCBkPSJNIDI1NiAxODUgTCAyNjAgMTk1IEwgMjcxIDE5NSBMIDI2MiAyMDIgTCAyNjYgMjEyIEwgMjU2IDIwNSBMIDI0NiAyMTIgTCAyNTAgMjAyIEwgMjQxIDE5NSBMIDI1MiAxOTUgWiIgCiAgICAgICAgZmlsbD0iI2ZmZDcwMCIgb3BhY2l0eT0iMC44Ii8+CiAgCiAgPCEtLSAiQ01FIiB0ZXh0IGF0IGJvdHRvbSAoc3VidGxlLCBvbiBsYW5kc2NhcGUpIC0tPgogIDx0ZXh0IHg9IjI1NiIgeT0iNTA1IiBmb250LWZhbWlseT0iQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMjQiIGZvbnQtd2VpZ2h0PSJib2xkIiAKICAgICAgICBmaWxsPSIjZmJiZjI0IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBvcGFjaXR5PSIwLjkiPkNNRTwvdGV4dD4KICAKICA8IS0tIFRyb3BoeSBnbG93IGVmZmVjdCAtLT4KICA8ZWxsaXBzZSBjeD0iMjU2IiBjeT0iMjMwIiByeD0iODAiIHJ5PSIxMDAiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2ZmZDcwMCIgc3Ryb2tlLXdpZHRoPSIyIiBvcGFjaXR5PSIwLjIiLz4KICA8ZWxsaXBzZSBjeD0iMjU2IiBjeT0iMjMwIiByeD0iOTAiIHJ5PSIxMTAiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2Y0YzQzMCIgc3Ryb2tlLXdpZHRoPSIxIiBvcGFjaXR5PSIwLjEiLz4KPC9zdmc+Cg==">
+    
+    <!-- Apple Touch Icon (iOS) -->
+    <link rel="apple-touch-icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIiB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiI+CiAgPCEtLSBCYWNrZ3JvdW5kIC0tPgogIDxjaXJjbGUgY3g9IjI1NiIgY3k9IjI1NiIgcj0iMjU2IiBmaWxsPSIjMWUzYThhIi8+CiAgCiAgPCEtLSBDTUUgTGFuZHNjYXBlIGF0IGJvdHRvbSAtLT4KICA8IS0tIE1vdW50YWluIHNpbGhvdWV0dGVzIC0tPgogIDxwYXRoIGQ9Ik0gMCA0NTAgTCAxMDAgMzUwIEwgMjAwIDQyMCBMIDI1MCAzNzAgTCAzMDAgNDEwIEwgNDAwIDMzMCBMIDUxMiA0MDAgTCA1MTIgNTEyIEwgMCA1MTIgWiIgCiAgICAgICAgZmlsbD0iIzBjNGE2ZSIgb3BhY2l0eT0iMC44Ii8+CiAgPHBhdGggZD0iTSAwIDQ3MCBMIDgwIDQwMCBMIDE1MCA0NDAgTCAyMjAgMzkwIEwgMjgwIDQzMCBMIDM1MCAzNzAgTCA0NTAgNDIwIEwgNTEyIDM4MCBMIDUxMiA1MTIgTCAwIDUxMiBaIiAKICAgICAgICBmaWxsPSIjMDc1OTg1IiBvcGFjaXR5PSIwLjkiLz4KICAKICA8IS0tIEZvcmVncm91bmQgbW91bnRhaW5zIC0tPgogIDxwYXRoIGQ9Ik0gMCA0OTAgTCA2MCA0NDAgTCAxMjAgNDcwIEwgMTgwIDQzMCBMIDI0MCA0NjAgTCAzMDAgNDIwIEwgMzYwIDQ1MCBMIDQyMCA0MTAgTCA0ODAgNDQ1IEwgNTEyIDQzMCBMIDUxMiA1MTIgTCAwIDUxMiBaIiAKICAgICAgICBmaWxsPSIjMDM2OWExIi8+CiAgCiAgPCEtLSBUcmVlcy9mb3Jlc3Qgc2lsaG91ZXR0ZXMgLS0+CiAgPGVsbGlwc2UgY3g9IjgwIiBjeT0iNDgwIiByeD0iMzAiIHJ5PSIyNSIgZmlsbD0iIzA2NGUzYiIgb3BhY2l0eT0iMC43Ii8+CiAgPGVsbGlwc2UgY3g9IjE0MCIgY3k9IjQ4NSIgcng9IjI1IiByeT0iMjAiIGZpbGw9IiMwNjRlM2IiIG9wYWNpdHk9IjAuNyIvPgogIDxlbGxpcHNlIGN4PSIyMDAiIGN5PSI0NzgiIHJ4PSIzNSIgcnk9IjI4IiBmaWxsPSIjMDY0ZTNiIiBvcGFjaXR5PSIwLjciLz4KICA8ZWxsaXBzZSBjeD0iMjcwIiBjeT0iNDgyIiByeD0iMjgiIHJ5PSIyMiIgZmlsbD0iIzA2NGUzYiIgb3BhY2l0eT0iMC43Ii8+CiAgPGVsbGlwc2UgY3g9IjM0MCIgY3k9IjQ3NiIgcng9IjMyIiByeT0iMjYiIGZpbGw9IiMwNjRlM2IiIG9wYWNpdHk9IjAuNyIvPgogIDxlbGxpcHNlIGN4PSI0MTAiIGN5PSI0ODAiIHJ4PSIyNiIgcnk9IjIxIiBmaWxsPSIjMDY0ZTNiIiBvcGFjaXR5PSIwLjciLz4KICAKICA8IS0tIEJlYXZlciBTaWxob3VldHRlIChwcm9maWxlIHZpZXcsIGJlaGluZCB0cm9waHkpIC0tPgogIDxnIG9wYWNpdHk9IjAuMyIgZmlsbD0iIzAwMCI+CiAgICA8IS0tIEJlYXZlciBib2R5IHNpbGhvdWV0dGUgLS0+CiAgICA8ZWxsaXBzZSBjeD0iMjU2IiBjeT0iMjQwIiByeD0iMTAwIiByeT0iMTEwIi8+CiAgICAKICAgIDwhLS0gQmVhdmVyIGhlYWQgKHByb2ZpbGUpIC0tPgogICAgPGVsbGlwc2UgY3g9IjIwMCIgY3k9IjE4MCIgcng9IjcwIiByeT0iNzUiLz4KICAgIAogICAgPCEtLSBFYXIgLS0+CiAgICA8ZWxsaXBzZSBjeD0iMTg1IiBjeT0iMTM1IiByeD0iMjAiIHJ5PSIyOCIvPgogICAgCiAgICA8IS0tIFNub3V0L25vc2UgYXJlYSAtLT4KICAgIDxlbGxpcHNlIGN4PSIxNjAiIGN5PSIxOTAiIHJ4PSIzNSIgcnk9IjI1Ii8+CiAgICAKICAgIDwhLS0gRnJvbnQgdG9vdGggKHZpc2libGUgaW4gcHJvZmlsZSkgLS0+CiAgICA8cmVjdCB4PSIxNDUiIHk9IjIwMCIgd2lkdGg9IjEwIiBoZWlnaHQ9IjIwIiBmaWxsPSIjMjIyIiByeD0iMiIvPgogICAgCiAgICA8IS0tIEJlYXZlciB0YWlsIC0tPgogICAgPGVsbGlwc2UgY3g9IjMyMCIgY3k9IjMxMCIgcng9IjcwIiByeT0iNDUiIHRyYW5zZm9ybT0icm90YXRlKC0yMCAzMjAgMzEwKSIvPgogICAgCiAgICA8IS0tIEZyb250IHBhdyAtLT4KICAgIDxlbGxpcHNlIGN4PSIyMDAiIGN5PSIzMDAiIHJ4PSIyNSIgcnk9IjM1Ii8+CiAgICAKICAgIDwhLS0gQmFjayBwYXcgLS0+CiAgICA8ZWxsaXBzZSBjeD0iMjgwIiBjeT0iMzIwIiByeD0iMjgiIHJ5PSIzOCIvPgogIDwvZz4KICAKICA8IS0tIENoYW1waW9uIFRyb3BoeSAoZ29sZGVuLCBmcm9udCBhbmQgY2VudGVyKSAtLT4KICA8IS0tIFRyb3BoeSBiYXNlIC0tPgogIDxyZWN0IHg9IjIxNiIgeT0iMzgwIiB3aWR0aD0iODAiIGhlaWdodD0iMTUiIGZpbGw9IiM5ZDZiMDAiIHJ4PSIzIi8+CiAgPHJlY3QgeD0iMjIwIiB5PSIzNjUiIHdpZHRoPSI3MiIgaGVpZ2h0PSIxNSIgZmlsbD0iI2I4N2QwMCIgcng9IjIiLz4KICAKICA8IS0tIFRyb3BoeSBzdGVtIC0tPgogIDxyZWN0IHg9IjI0MCIgeT0iMjkwIiB3aWR0aD0iMzIiIGhlaWdodD0iNzUiIGZpbGw9IiNkNGEwMTciIHJ4PSI0Ii8+CiAgPHJlY3QgeD0iMjQyIiB5PSIyOTIiIHdpZHRoPSIyOCIgaGVpZ2h0PSI3MSIgZmlsbD0iI2Y0YzQzMCIgcng9IjMiLz4KICAKICA8IS0tIFRyb3BoeSBoYW5kbGVzIC0tPgogIDwhLS0gTGVmdCBoYW5kbGUgLS0+CiAgPHBhdGggZD0iTSAyMTUgMjUwIFEgMTk1IDI2MCAxOTUgMjg1IFEgMTk1IDMwMCAyMTAgMzA1IEwgMjIwIDMwMCBRIDIxMCAyOTUgMjEwIDI4NSBRIDIxMCAyNjggMjI1IDI2MCBaIiAKICAgICAgICBmaWxsPSIjZDRhMDE3Ii8+CiAgPHBhdGggZD0iTSAyMTcgMjUyIFEgMjAwIDI2MSAyMDAgMjg1IFEgMjAwIDI5NyAyMTMgMzAyIEwgMjIwIDI5OCBRIDIxMyAyOTMgMjEzIDI4NSBRIDIxMyAyNzAgMjI2IDI2MiBaIiAKICAgICAgICBmaWxsPSIjZjRjNDMwIi8+CiAgCiAgPCEtLSBSaWdodCBoYW5kbGUgLS0+CiAgPHBhdGggZD0iTSAyOTcgMjUwIFEgMzE3IDI2MCAzMTcgMjg1IFEgMzE3IDMwMCAzMDIgMzA1IEwgMjkyIDMwMCBRIDMwMiAyOTUgMzAyIDI4NSBRIDMwMiAyNjggMjg3IDI2MCBaIiAKICAgICAgICBmaWxsPSIjZDRhMDE3Ii8+CiAgPHBhdGggZD0iTSAyOTUgMjUyIFEgMzEyIDI2MSAzMTIgMjg1IFEgMzEyIDI5NyAyOTkgMzAyIEwgMjkyIDI5OCBRIDI5OSAyOTMgMjk5IDI4NSBRIDI5OSAyNzAgMjg2IDI2MiBaIiAKICAgICAgICBmaWxsPSIjZjRjNDMwIi8+CiAgCiAgPCEtLSBUcm9waHkgY3VwIGJvZHkgLS0+CiAgPHBhdGggZD0iTSAyMjAgMjUwIEwgMjIwIDE5MCBRIDIyMCAxNzAgMjQwIDE2NSBMIDI3MiAxNjUgUSAyOTIgMTcwIDI5MiAxOTAgTCAyOTIgMjUwIFEgMjkyIDI2NSAyODAgMjcwIEwgMjMyIDI3MCBRIDIyMCAyNjUgMjIwIDI1MCBaIiAKICAgICAgICBmaWxsPSIjZDRhMDE3Ii8+CiAgPHBhdGggZD0iTSAyMjQgMjUwIEwgMjI0IDE5MiBRIDIyNCAxNzUgMjQyIDE3MCBMIDI3MCAxNzAgUSAyODggMTc1IDI4OCAxOTIgTCAyODggMjUwIFEgMjg4IDI2MiAyNzggMjY2IEwgMjM0IDI2NiBRIDIyNCAyNjIgMjI0IDI1MCBaIiAKICAgICAgICBmaWxsPSIjZjRjNDMwIi8+CiAgCiAgPCEtLSBUcm9waHkgY3VwIHJpbSAtLT4KICA8ZWxsaXBzZSBjeD0iMjU2IiBjeT0iMTY1IiByeD0iMzYiIHJ5PSIxMiIgZmlsbD0iI2Q0YTAxNyIvPgogIDxlbGxpcHNlIGN4PSIyNTYiIGN5PSIxNjUiIHJ4PSIzMiIgcnk9IjEwIiBmaWxsPSIjZmZkNzAwIi8+CiAgCiAgPCEtLSBUcm9waHkgc2hpbmUvaGlnaGxpZ2h0cyAtLT4KICA8ZWxsaXBzZSBjeD0iMjQwIiBjeT0iMjAwIiByeD0iOCIgcnk9IjI1IiBmaWxsPSIjZmZmIiBvcGFjaXR5PSIwLjQiLz4KICA8ZWxsaXBzZSBjeD0iMjY1IiBjeT0iMjE1IiByeD0iNiIgcnk9IjIwIiBmaWxsPSIjZmZmIiBvcGFjaXR5PSIwLjMiLz4KICAKICA8IS0tIFRyb3BoeSBkZWNvcmF0aXZlIGJhbmRzIC0tPgogIDxyZWN0IHg9IjIyNCIgeT0iMTk1IiB3aWR0aD0iNjQiIGhlaWdodD0iMyIgZmlsbD0iI2I4N2QwMCIgb3BhY2l0eT0iMC42Ii8+CiAgPHJlY3QgeD0iMjI0IiB5PSIyMjAiIHdpZHRoPSI2NCIgaGVpZ2h0PSIzIiBmaWxsPSIjYjg3ZDAwIiBvcGFjaXR5PSIwLjYiLz4KICA8cmVjdCB4PSIyMjQiIHk9IjI0NSIgd2lkdGg9IjY0IiBoZWlnaHQ9IjMiIGZpbGw9IiNiODdkMDAiIG9wYWNpdHk9IjAuNiIvPgogIAogIDwhLS0gVHJvcGh5IGVuZ3JhdmluZ3MgKHNtYWxsIGxpbmVzKSAtLT4KICA8bGluZSB4MT0iMjQ1IiB5MT0iMjA1IiB4Mj0iMjY3IiB5Mj0iMjA1IiBzdHJva2U9IiM5ZDZiMDAiIHN0cm9rZS13aWR0aD0iMSIgb3BhY2l0eT0iMC41Ii8+CiAgPGxpbmUgeDE9IjI0MyIgeTE9IjIxMCIgeDI9IjI2OSIgeTI9IjIxMCIgc3Ryb2tlPSIjOWQ2YjAwIiBzdHJva2Utd2lkdGg9IjEiIG9wYWNpdHk9IjAuNSIvPgogIDxsaW5lIHgxPSIyNDUiIHkxPSIyMzAiIHgyPSIyNjciIHkyPSIyMzAiIHN0cm9rZT0iIzlkNmIwMCIgc3Ryb2tlLXdpZHRoPSIxIiBvcGFjaXR5PSIwLjUiLz4KICA8bGluZSB4MT0iMjQzIiB5MT0iMjM1IiB4Mj0iMjY5IiB5Mj0iMjM1IiBzdHJva2U9IiM5ZDZiMDAiIHN0cm9rZS13aWR0aD0iMSIgb3BhY2l0eT0iMC41Ii8+CiAgCiAgPCEtLSBTdGFyIG9uIHRyb3BoeSAtLT4KICA8cGF0aCBkPSJNIDI1NiAxODUgTCAyNjAgMTk1IEwgMjcxIDE5NSBMIDI2MiAyMDIgTCAyNjYgMjEyIEwgMjU2IDIwNSBMIDI0NiAyMTIgTCAyNTAgMjAyIEwgMjQxIDE5NSBMIDI1MiAxOTUgWiIgCiAgICAgICAgZmlsbD0iI2ZmZDcwMCIgb3BhY2l0eT0iMC44Ii8+CiAgCiAgPCEtLSAiQ01FIiB0ZXh0IGF0IGJvdHRvbSAoc3VidGxlLCBvbiBsYW5kc2NhcGUpIC0tPgogIDx0ZXh0IHg9IjI1NiIgeT0iNTA1IiBmb250LWZhbWlseT0iQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMjQiIGZvbnQtd2VpZ2h0PSJib2xkIiAKICAgICAgICBmaWxsPSIjZmJiZjI0IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBvcGFjaXR5PSIwLjkiPkNNRTwvdGV4dD4KICAKICA8IS0tIFRyb3BoeSBnbG93IGVmZmVjdCAtLT4KICA8ZWxsaXBzZSBjeD0iMjU2IiBjeT0iMjMwIiByeD0iODAiIHJ5PSIxMDAiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2ZmZDcwMCIgc3Ryb2tlLXdpZHRoPSIyIiBvcGFjaXR5PSIwLjIiLz4KICA8ZWxsaXBzZSBjeD0iMjU2IiBjeT0iMjMwIiByeD0iOTAiIHJ5PSIxMTAiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2Y0YzQzMCIgc3Ryb2tlLXdpZHRoPSIxIiBvcGFjaXR5PSIwLjEiLz4KPC9zdmc+Cg==">
+    
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="data:application/json;base64,ewogICJuYW1lIjogIkhvY2tleSBUb3VybmFtZW50IiwKICAic2hvcnRfbmFtZSI6ICJUb3VybmFtZW50IiwKICAiZGVzY3JpcHRpb24iOiAiTGl2ZSB0b3VybmFtZW50IHNjaGVkdWxlLCBzdGFuZGluZ3MsIGFuZCBzdGF0cyIsCiAgInN0YXJ0X3VybCI6ICIuIiwKICAiZGlzcGxheSI6ICJzdGFuZGFsb25lIiwKICAiYmFja2dyb3VuZF9jb2xvciI6ICIjMWUzYThhIiwKICAidGhlbWVfY29sb3IiOiAiIzAwMWYzZiIsCiAgImljb25zIjogWwogICAgewogICAgICAic3JjIjogImRhdGE6aW1hZ2Uvc3ZnK3htbDtiYXNlNjQsUEhOMlp5QjRiV3h1Y3owaWFIUjBjRG92TDNkM2R5NTNNeTV2Y21jdk1qQXdNQzl6ZG1jaUlIWnBaWGRDYjNnOUlqQWdNQ0ExTVRJZ05URXlJaUIzYVdSMGFEMGlOVEV5SWlCb1pXbG5hSFE5SWpVeE1pSStDaUFnUENFdExTQkNZV05yWjNKdmRXNWtJQzB0UGdvZ0lEeGphWEpqYkdVZ1kzZzlJakkxTmlJZ1kzazlJakkxTmlJZ2NqMGlNalUySWlCbWFXeHNQU0lqTVdVellUaGhJaTgrQ2lBZ0NpQWdQQ0V0TFNCRFRVVWdUR0Z1WkhOallYQmxJR0YwSUdKdmRIUnZiU0F0TFQ0S0lDQThJUzB0SUUxdmRXNTBZV2x1SUhOcGJHaHZkV1YwZEdWeklDMHRQZ29nSUR4d1lYUm9JR1E5SWswZ01DQTBOVEFnVENBeE1EQWdNelV3SUV3Z01qQXdJRFF5TUNCTUlESTFNQ0F6TnpBZ1RDQXpNREFnTkRFd0lFd2dOREF3SURNek1DQk1JRFV4TWlBME1EQWdUQ0ExTVRJZ05URXlJRXdnTUNBMU1USWdXaUlnQ2lBZ0lDQWdJQ0FnWm1sc2JEMGlJekJqTkdFMlpTSWdiM0JoWTJsMGVUMGlNQzQ0SWk4K0NpQWdQSEJoZEdnZ1pEMGlUU0F3SURRM01DQk1JRGd3SURRd01DQk1JREUxTUNBME5EQWdUQ0F5TWpBZ016a3dJRXdnTWpnd0lEUXpNQ0JNSURNMU1DQXpOekFnVENBME5UQWdOREl3SUV3Z05URXlJRE00TUNCTUlEVXhNaUExTVRJZ1RDQXdJRFV4TWlCYUlpQUtJQ0FnSUNBZ0lDQm1hV3hzUFNJak1EYzFPVGcxSWlCdmNHRmphWFI1UFNJd0xqa2lMejRLSUNBS0lDQThJUzB0SUVadmNtVm5jbTkxYm1RZ2JXOTFiblJoYVc1eklDMHRQZ29nSUR4d1lYUm9JR1E5SWswZ01DQTBPVEFnVENBMk1DQTBOREFnVENBeE1qQWdORGN3SUV3Z01UZ3dJRFF6TUNCTUlESTBNQ0EwTmpBZ1RDQXpNREFnTkRJd0lFd2dNell3SURRMU1DQk1JRFF5TUNBME1UQWdUQ0EwT0RBZ05EUTFJRXdnTlRFeUlEUXpNQ0JNSURVeE1pQTFNVElnVENBd0lEVXhNaUJhSWlBS0lDQWdJQ0FnSUNCbWFXeHNQU0lqTURNMk9XRXhJaTgrQ2lBZ0NpQWdQQ0V0TFNCVWNtVmxjeTltYjNKbGMzUWdjMmxzYUc5MVpYUjBaWE1nTFMwK0NpQWdQR1ZzYkdsd2MyVWdZM2c5SWpnd0lpQmplVDBpTkRnd0lpQnllRDBpTXpBaUlISjVQU0l5TlNJZ1ptbHNiRDBpSXpBMk5HVXpZaUlnYjNCaFkybDBlVDBpTUM0M0lpOCtDaUFnUEdWc2JHbHdjMlVnWTNnOUlqRTBNQ0lnWTNrOUlqUTROU0lnY25nOUlqSTFJaUJ5ZVQwaU1qQWlJR1pwYkd3OUlpTXdOalJsTTJJaUlHOXdZV05wZEhrOUlqQXVOeUl2UGdvZ0lEeGxiR3hwY0hObElHTjRQU0l5TURBaUlHTjVQU0kwTnpnaUlISjRQU0l6TlNJZ2NuazlJakk0SWlCbWFXeHNQU0lqTURZMFpUTmlJaUJ2Y0dGamFYUjVQU0l3TGpjaUx6NEtJQ0E4Wld4c2FYQnpaU0JqZUQwaU1qY3dJaUJqZVQwaU5EZ3lJaUJ5ZUQwaU1qZ2lJSEo1UFNJeU1pSWdabWxzYkQwaUl6QTJOR1V6WWlJZ2IzQmhZMmwwZVQwaU1DNDNJaTgrQ2lBZ1BHVnNiR2x3YzJVZ1kzZzlJak0wTUNJZ1kzazlJalEzTmlJZ2NuZzlJak15SWlCeWVUMGlNallpSUdacGJHdzlJaU13TmpSbE0ySWlJRzl3WVdOcGRIazlJakF1TnlJdlBnb2dJRHhsYkd4cGNITmxJR040UFNJME1UQWlJR041UFNJME9EQWlJSEo0UFNJeU5pSWdjbms5SWpJeElpQm1hV3hzUFNJak1EWTBaVE5pSWlCdmNHRmphWFI1UFNJd0xqY2lMejRLSUNBS0lDQThJUzB0SUVKbFlYWmxjaUJUYVd4b2IzVmxkSFJsSUNod2NtOW1hV3hsSUhacFpYY3NJR0psYUdsdVpDQjBjbTl3YUhrcElDMHRQZ29nSUR4bklHOXdZV05wZEhrOUlqQXVNeUlnWm1sc2JEMGlJekF3TUNJK0NpQWdJQ0E4SVMwdElFSmxZWFpsY2lCaWIyUjVJSE5wYkdodmRXVjBkR1VnTFMwK0NpQWdJQ0E4Wld4c2FYQnpaU0JqZUQwaU1qVTJJaUJqZVQwaU1qUXdJaUJ5ZUQwaU1UQXdJaUJ5ZVQwaU1URXdJaTgrQ2lBZ0lDQUtJQ0FnSUR3aExTMGdRbVZoZG1WeUlHaGxZV1FnS0hCeWIyWnBiR1VwSUMwdFBnb2dJQ0FnUEdWc2JHbHdjMlVnWTNnOUlqSXdNQ0lnWTNrOUlqRTRNQ0lnY25nOUlqY3dJaUJ5ZVQwaU56VWlMejRLSUNBZ0lBb2dJQ0FnUENFdExTQkZZWElnTFMwK0NpQWdJQ0E4Wld4c2FYQnpaU0JqZUQwaU1UZzFJaUJqZVQwaU1UTTFJaUJ5ZUQwaU1qQWlJSEo1UFNJeU9DSXZQZ29nSUNBZ0NpQWdJQ0E4SVMwdElGTnViM1YwTDI1dmMyVWdZWEpsWVNBdExUNEtJQ0FnSUR4bGJHeHBjSE5sSUdONFBTSXhOakFpSUdONVBTSXhPVEFpSUhKNFBTSXpOU0lnY25rOUlqSTFJaTgrQ2lBZ0lDQUtJQ0FnSUR3aExTMGdSbkp2Ym5RZ2RHOXZkR2dnS0hacGMybGliR1VnYVc0Z2NISnZabWxzWlNrZ0xTMCtDaUFnSUNBOGNtVmpkQ0I0UFNJeE5EVWlJSGs5SWpJd01DSWdkMmxrZEdnOUlqRXdJaUJvWldsbmFIUTlJakl3SWlCbWFXeHNQU0lqTWpJeUlpQnllRDBpTWlJdlBnb2dJQ0FnQ2lBZ0lDQThJUzB0SUVKbFlYWmxjaUIwWVdsc0lDMHRQZ29nSUNBZ1BHVnNiR2x3YzJVZ1kzZzlJak15TUNJZ1kzazlJak14TUNJZ2NuZzlJamN3SWlCeWVUMGlORFVpSUhSeVlXNXpabTl5YlQwaWNtOTBZWFJsS0MweU1DQXpNakFnTXpFd0tTSXZQZ29nSUNBZ0NpQWdJQ0E4SVMwdElFWnliMjUwSUhCaGR5QXRMVDRLSUNBZ0lEeGxiR3hwY0hObElHTjRQU0l5TURBaUlHTjVQU0l6TURBaUlISjRQU0l5TlNJZ2NuazlJak0xSWk4K0NpQWdJQ0FLSUNBZ0lEd2hMUzBnUW1GamF5QndZWGNnTFMwK0NpQWdJQ0E4Wld4c2FYQnpaU0JqZUQwaU1qZ3dJaUJqZVQwaU16SXdJaUJ5ZUQwaU1qZ2lJSEo1UFNJek9DSXZQZ29nSUR3dlp6NEtJQ0FLSUNBOElTMHRJRU5vWVcxd2FXOXVJRlJ5YjNCb2VTQW9aMjlzWkdWdUxDQm1jbTl1ZENCaGJtUWdZMlZ1ZEdWeUtTQXRMVDRLSUNBOElTMHRJRlJ5YjNCb2VTQmlZWE5sSUMwdFBnb2dJRHh5WldOMElIZzlJakl4TmlJZ2VUMGlNemd3SWlCM2FXUjBhRDBpT0RBaUlHaGxhV2RvZEQwaU1UVWlJR1pwYkd3OUlpTTVaRFppTURBaUlISjRQU0l6SWk4K0NpQWdQSEpsWTNRZ2VEMGlNakl3SWlCNVBTSXpOalVpSUhkcFpIUm9QU0kzTWlJZ2FHVnBaMmgwUFNJeE5TSWdabWxzYkQwaUkySTROMlF3TUNJZ2NuZzlJaklpTHo0S0lDQUtJQ0E4SVMwdElGUnliM0JvZVNCemRHVnRJQzB0UGdvZ0lEeHlaV04wSUhnOUlqSTBNQ0lnZVQwaU1qa3dJaUIzYVdSMGFEMGlNeklpSUdobGFXZG9kRDBpTnpVaUlHWnBiR3c5SWlOa05HRXdNVGNpSUhKNFBTSTBJaTgrQ2lBZ1BISmxZM1FnZUQwaU1qUXlJaUI1UFNJeU9USWlJSGRwWkhSb1BTSXlPQ0lnYUdWcFoyaDBQU0kzTVNJZ1ptbHNiRDBpSTJZMFl6UXpNQ0lnY25nOUlqTWlMejRLSUNBS0lDQThJUzB0SUZSeWIzQm9lU0JvWVc1a2JHVnpJQzB0UGdvZ0lEd2hMUzBnVEdWbWRDQm9ZVzVrYkdVZ0xTMCtDaUFnUEhCaGRHZ2daRDBpVFNBeU1UVWdNalV3SUFVZ01UazFJREkyTUNBeE9UVWdNamcxSUZFZ01UazFJRE13TUNBeU1UQWdNekExSUV3Z01qSXdJRE13TUNCUklESXhNQ0F5T1RVZ01qRXdJREk0TlNCUklESXhNQ0F5TmpnZ01qSTFJREkyTUNCYUlpQUtJQ0FnSUNBZ0lDQm1hV3hzUFNJalpEUmhNREUzSWk4K0NpQWdQSEJoZEdnZ1pEMGlUU0F5TVRjZ01qVXlJRkVnTWpBd0lESTJNU0F5TURBZ01qZzFJRkVnTWpBd0lESTVOeUF5TVRNZ016QXlJRXdnTWpJd0lESTVPQ0JSSURJeE15QXlPVE1nTWpFeklESTROU0JSSURJeE15QXlOekFnTWpJMklESTJNaUJhSWlBS0lDQWdJQ0FnSUNCbWFXeHNQU0lqWmpSak5ETXdJaTgrQ2lBZ0NpQWdQQ0V0TFNCU2FXZG9kQ0JvWVc1a2JHVWdMUzArQ2lBZ1BIQmhkR2dnWkQwaVRTQXlPVGNnTWpVd0lGRWdNekUzSURJMk1DQXpNVGNnTWpnMUlGRWdNekUzSURNd01DQXpNRElnTXpBMUlFd2dNamt5SURNd01DQlJJRE13TWlBeU9UVWdNekF5SURJNE5TQlJJRE13TWlBeU5qZ2dNamczSURJMk1DQmFJaUFLSUNBZ0lDQWdJQ0JtYVd4c1BTSWpaRFJoTURFM0lpOCtDaUFnUEhCaGRHZ2daRDBpVFNBeU9UVWdNalV5SUFVZ016RXlJREkyTVNBek1USWdNamcxSUZFZ016RXlJREk1TnlBeU9Ua2dNekF5SUV3Z01qa3lJREk1T0NCUklESTVPU0F5T1RNZ01qazVJREk0TlNCUklESTVPU0F5TnpBZ01qZzJJREkyTWlCYUlpQUtJQ0FnSUNBZ0lDQm1hV3hzUFNJalpqUmpORE13SWk4K0NpQWdDaUFnUENFdExTQlVjbTl3YUhrZ1kzVndJR0p2WkhrZ0xTMCtDaUFnUEhCaGRHZ2daRDBpVFNBeU1qQWdNalV3SUV3Z01qSXdJREU1TUNCUklESXlNQ0F4TnpBZ01qUXdJREUyTlNCTUlESTNNaUF4TmpVZ1VTQXlPVElnTVRjd0lESTVNaUF4T1RBZ1RDQXlPVElnTWpVd0lGRWdNamt5SURJMk5TQXlPREFnTWpjd0lFd2dNak15SURJM01DQlJJREl5TUNBeU5qVWdNakl3SURJMU1DQmFJaUFLSUNBZ0lDQWdJQ0JtYVd4c1BTSWpaRFJoTURFM0lpOCtDaUFnUEhCaGRHZ2daRDBpVFNBeU1qUWdNalV3SUV3Z01qSTBJREU1TWlCUklESXlOQ0F4TnpVZ01qUXlJREUzTUNCTUlESTNNQ0F4TnpBZ1VTQXlPRGdnTVRjMUlESTRPQ0F4T1RJZ1RDQXlPRGdnTWpVd0lGRWdNamc0SURJMk1pQXlOemdnTWpZMklFd2dNak0wSURJMk5pQlJJREl5TkNBeU5qSWdNakkwSURJMU1DQmFJaUFLSUNBZ0lDQWdJQ0JtYVd4c1BTSWpaalJqTkRNd0lpOCtDaUFnQ2lBZ1BDRXRMU0JVY205d2FIa2dZM1Z3SUhKcGJTQXRMVDRLSUNBOFpXeHNhWEJ6WlNCamVEMGlNalUySWlCamVUMGlNVFkxSWlCeWVEMGlNellpSUhKNVBTSXhNaUlnWm1sc2JEMGlJMlEwWVRBeE55SXZQZ29nSUR4bGJHeHBjSE5sSUdONFBTSXlOVFlpSUdONVBTSXhOalVpSUhKNFBTSXpNaUlnY25rOUlqRXdJaUJtYVd4c1BTSWpabVprTnpBd0lpOCtDaUFnQ2lBZ1BDRXRMU0JVY205d2FIa2djMmhwYm1VdmFHbG5hR3hwWjJoMGN5QXRMVDRLSUNBOFpXeHNhWEJ6WlNCamVEMGlNalF3SWlCamVUMGlNakF3SWlCeWVEMGlPQ0lnY25rOUlqSTFJaUJtYVd4c1BTSWpabVptSWlCdmNHRmphWFI1UFNJd0xqUWlMejRLSUNBOFpXeHNhWEJ6WlNCamVEMGlNalkxSWlCamVUMGlNakUxSWlCeWVEMGlOaUlnY25rOUlqSXdJaUJtYVd4c1BTSWpabVptSWlCdmNHRmphWFI1UFNJd0xqTWlMejRLSUNBS0lDQThJUzB0SUZSeWIzQm9lU0JrWldOdmNtRjBhWFpsSUdKaGJtUnpJQzB0UGdvZ0lEeHlaV04wSUhnOUlqSXlOQ0lnZVQwaU1UazFJaUIzYVdSMGFEMGlOalFpSUdobGFXZG9kRDBpTXlJZ1ptbHNiRDBpSTJJNE4yUXdNQ0lnYjNCaFkybDBlVDBpTUM0MklpOCtDaUFnUEhKbFkzUWdlRDBpTWpJMElpQjVQU0l5TWpBaUlIZHBaSFJvUFNJMk5DSWdhR1ZwWjJoMFBTSXpJaUJtYVd4c1BTSWpZamczWkRBd0lpQnZjR0ZqYVhSNVBTSXdMallpTHo0S0lDQThjbVZqZENCNFBTSXlNalFpSUhrOUlqSTBOU0lnZDJsa2RHZzlJalkwSWlCb1pXbG5hSFE5SWpNaUlHWnBiR3c5SWlOaU9EZGtNREFpSUc5d1lXTnBkSGs5SWpBdU5pSXZQZ29nSUFvZ0lEd2hMUzBnVkhKdmNHaDVJR1Z1WjNKaGRtbHVaM01nS0hOdFlXeHNJR3hwYm1WektTQXRMVDRLSUNBOGJHbHVaU0I0TVQwaU1qUTFJaUI1TVQwaU1qQTFJaUI0TWowaU1qWTNJaUI1TWowaU1qQTFJaUJ6ZEhKdmEyVTlJaU01WkRaaU1EQWlJSE4wY205clpTMTNhV1IwYUQwaU1TSWdiM0JoWTJsMGVUMGlNQzQxSWk4K0NpQWdQR3hwYm1VZ2VERTlJakkwTXlJZ2VURTlJakl4TUNJZ2VESTlJakkyT1NJZ2VUSTlJakl4TUNJZ2MzUnliMnRsUFNJak9XUTJZakF3SWlCemRISnZhMlV0ZDJsa2RHZzlJakVpSUc5d1lXTnBkSGs5SWpBdU5TSXZQZ29nSUR4c2FXNWxJSGd4UFNJeU5EVWlJSGt4UFNJeU16QWlJSGd5UFNJeU5qY2lJSGt5UFNJeU16QWlJSE4wY205clpUMGlJemxrTm1Jd01DSWdjM1J5YjJ0bExYZHBaSFJvUFNJeElpQnZjR0ZqYVhSNVBTSXdMalVpTHo0S0lDQThiR2x1WlNCNE1UMGlNalF6SWlCNU1UMGlNak0xSWlCNE1qMGlNalk1SWlCNU1qMGlNak0xSWlCemRISnZhMlU5SWlNNVpEWmlNREFpSUhOMGNtOXJaUzEzYVdSMGFEMGlNU0lnYjNCaFkybDBlVDBpTUM0MUlpOCtDaUFnQ2lBZ1BDRXRMU0JUZEdGeUlHOXVJSFJ5YjNCb2VTQXRMVDRLSUNBOGNHRjBhQ0JrUFNKTklESTFOaUF4T0RVZ1RDQXlOakFnTVRrMUlFd2dNamN4SURFNU5TQk1JREkyTWlBeU1ESWdUQ0F5TmpZZ01qRXlJRXdnTWpVMklESXdOU0JNSURJME5pQXlNVElnVENBeU5UQWdNakF5SUV3Z01qUXhJREU1TlNCTUlESTFNaUF4T1RVZ1dpSWdDaUFnSUNBZ0lDQWdabWxzYkQwaUkyWm1aRGN3TUNJZ2IzQmhZMmwwZVQwaU1DNDRJaTgrQ2lBZ0NpQWdQQ0V0TFNBaVEwMUZJaUIwWlhoMElHRjBJR0p2ZEhSdmJTQW9jM1ZpZEd4bExDQnZiaUJzWVc1a2MyTmhjR1VwSUMwdFBnb2dJRHgwWlhoMElIZzlJakkxTmlJZ2VUMGlOVEExSWlCbWIyNTBMV1poYldsc2VUMGlRWEpwWVd3c0lITmhibk10YzJWeWFXWWlJR1p2Ym5RdGMybDZaVDBpTWpRaUlHWnZiblF0ZDJWcFoyaDBQU0ppYjJ4a0lpQUtJQ0FnSUNBZ0lDQm1hV3hzUFNJalptSmlaakkwSWlCMFpYaDBMV0Z1WTJodmNqMGliV2xrWkd4bElpQnZjR0ZqYVhSNVBTSXdMamtpUGtOTlJUd3ZkR1Y0ZEQ0S0lDQUtJQ0E4SVMwdElGUnliM0JvZVNCbmJHOTNJR1ZtWm1WamRDQXRMVDRLSUNBOFpXeHNhWEJ6WlNCamVEMGlNalUySWlCamVUMGlNak13SWlCeWVEMGlPREFpSUhKNVBTSXhNREFpSUdacGJHdzlJbTV2Ym1VaUlITjBjbTlyWlQwaUkyWm1aRGN3TUNJZ2MzUnliMnRsTFhkcFpIUm9QU0l5SWlCdmNHRmphWFI1UFNJd0xqSWlMejRLSUNBOFpXeHNhWEJ6WlNCamVEMGlNalUySWlCamVUMGlNak13SWlCeWVEMGlPVEFpSUhKNVBTSXhNVEFpSUdacGJHdzlJbTV2Ym1VaUlITjBjbTlyWlQwaUkyWTBZelF6TUNJZ2MzUnliMnRsTFhkcFpIUm9QU0l4SWlCdmNHRmphWFI1UFNJd0xqRWlMejRLUEM5emRtYytDZz09IiwKICAgICAgInNpemVzIjogIjUxMng1MTIiLAogICAgICAidHlwZSI6ICJpbWFnZS9zdmcreG1sIgogICAgfQogIF0KfQo=">
+    
+    <!-- iOS Web App Capable -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Tournament">
+    
+    <!-- Theme Colors -->
+    <meta name="theme-color" content="#001f3f">
+    <meta name="msapplication-TileColor" content="#8B4513">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #001f3f 0%, #003d7a 100%);
+            padding: 30px;
+            text-align: center;
+            position: relative;
+        }
+        
+        .header h1 {
+            color: #fde047;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        
+        .header .subtitle {
+            color: #fef3c7;
+            font-size: 1.1em;
+            margin-bottom: 15px;
+        }
+        
+        .logo-container {
+            margin: 20px 0;
+        }
+        
+        .logo-container img {
+            max-width: 100%;
+            max-height: 200px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+        
+        .refresh-info {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 10px;
+            border-radius: 8px;
+            display: inline-block;
+            margin-top: 15px;
+        }
+        
+        .refresh-button {
+            background: #22c55e;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            margin-left: 10px;
+        }
+        
+        .refresh-button:hover {
+            background: #16a34a;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        
+        .content {
+            padding: 40px;
+        }
+        
+        .section {
+            margin-bottom: 40px;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .section h2 {
+            color: #001f3f;
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #dc2626;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .info-box {
+            background: #f0f9ff;
+            border-left: 4px solid #0891b2;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+        
+        .info-box p, .info-box li {
+            color: #333;
+            line-height: 1.8;
+            margin: 8px 0;
+        }
+        
+        .info-box li {
+            margin-left: 20px;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        th {
+            background: #001f3f;
+            color: white;
+            padding: 15px;
+            text-align: left;
+            font-weight: bold;
+        }
+        
+        td {
+            padding: 12px 15px;
+            border-bottom: 1px solid #e5e7eb;
+        }
+        
+        tr:nth-child(even) {
+            background: #f9fafb;
+        }
+        
+        tr:hover {
+            background: #f0f9ff;
+        }
+        
+        .rank-1 {
+            background: #fef3c7 !important;
+            font-weight: bold;
+        }
+        
+        .rank-2 {
+            background: #e0e7ff !important;
+        }
+        
+        .rank-3 {
+            background: #fce7f3 !important;
+        }
+        
+        .announcement {
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+            border-left: 4px solid #0891b2;
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .announcement h3 {
+            color: #001f3f;
+            margin-bottom: 8px;
+        }
+        
+        .announcement .date {
+            color: #0891b2;
+            font-size: 0.9em;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        
+        .announcement p {
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .empty-state {
+            color: #9ca3af;
+            text-align: center;
+            padding: 40px;
+            font-style: italic;
+        }
+        
+        .last-updated {
+            text-align: center;
+            color: #6b7280;
+            font-size: 0.9em;
+            padding: 20px;
+            border-top: 1px solid #e5e7eb;
+        }
+        
+        .install-banner {
+            background: linear-gradient(135deg, #8B4513 0%, #A0522D 100%);
+            color: white;
+            padding: 15px 20px;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 15px;
+        }
+        
+        .install-banner-content {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        
+        .install-banner-icon {
+            font-size: 2em;
+        }
+        
+        .install-banner-text {
+            text-align: left;
+        }
+        
+        .install-banner-text strong {
+            display: block;
+            font-size: 1.1em;
+            margin-bottom: 3px;
+        }
+        
+        .install-banner-text small {
+            font-size: 0.85em;
+            opacity: 0.9;
+        }
+        
+        .install-banner-close {
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.2em;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+        
+        .install-banner-close:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+        
+        .hidden {
+            display: none !important;
+        }
+        
+        @media print {
+            body {
+                background: white;
+            }
+            
+            .container {
+                box-shadow: none;
+            }
+            
+            .refresh-info, .refresh-button, .install-banner {
+                display: none;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+            
+            .header h1 {
+                font-size: 1.8em;
+            }
+            
+            .content {
+                padding: 20px;
+            }
+            
+            table {
+                font-size: 0.9em;
+            }
+            
+            th, td {
+                padding: 8px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Add to Home Screen Banner -->
+    <div class="install-banner" id="installBanner">
+        <div class="install-banner-content">
+            <div class="install-banner-icon">🦫</div>
+            <div class="install-banner-text">
+                <strong>Add to Home Screen</strong>
+                <small>Tap <strong>Share</strong> then <strong>"Add to Home Screen"</strong> for quick access!</small>
+            </div>
+        </div>
+        <button class="install-banner-close" onclick="dismissInstallBanner()" aria-label="Close">×</button>
+    </div>
+    
+    <div class="container">
+        <div class="header">
+            <div class="logo-container" id="logoContainer" style="display: none;">
+                <img id="tournamentLogo" alt="Tournament Logo">
+            </div>
+            <h1>🏒 Tournament Information</h1>
+            <div class="subtitle">Live Tournament Updates</div>
+            <div class="refresh-info">
+                <span style="color: #fef3c7;">⏱️ Auto-refreshes every 30 seconds</span>
+                <button class="refresh-button" onclick="loadAndDisplay()">🔄 Refresh Now</button>
+            </div>
+        </div>
+        
+        <div class="content">
+            <!-- Welcome Message -->
+            <div class="section" id="welcomeSection" style="display: none;">
+                <div class="info-box" id="welcomeContent">
+                    <!-- Welcome message content -->
+                </div>
+            </div>
+            
+            <!-- Important Information -->
+            <div class="section">
+                <h2>📢 Important Information</h2>
+                <div class="info-box" id="importantInfoContent">
+                    <p class="empty-state">No information available yet</p>
+                </div>
+            </div>
+            
+            <!-- Tournament Itinerary -->
+            <div class="section">
+                <h2>📅 Tournament Itinerary</h2>
+                <div class="info-box" id="itineraryContent">
+                    <p class="empty-state">Itinerary will be posted soon</p>
+                </div>
+            </div>
+            
+            <!-- Match Schedule -->
+            <div class="section">
+                <h2>🏒 Match Schedule</h2>
+                <div id="scheduleContainer">
+                    <p class="empty-state">Schedule will be posted soon</p>
+                </div>
+            </div>
+            
+            <!-- Team Standings -->
+            <div class="section">
+                <h2>📊 Team Standings</h2>
+                <div id="standingsContainer">
+                    <p class="empty-state">Standings will be updated after matches</p>
+                </div>
+            </div>
+            
+            <!-- Player Statistics -->
+            <div class="section">
+                <h2>⭐ Player Statistics</h2>
+                <div id="playerStatsContainer">
+                    <p class="empty-state">Player stats will be posted during tournament</p>
+                </div>
+            </div>
+            
+            <!-- Announcements -->
+            <div class="section">
+                <h2>📣 Announcements</h2>
+                <div id="announcementsContainer">
+                    <p class="empty-state">No announcements at this time</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="last-updated">
+            Last updated: <span id="lastUpdated">-</span>
+        </div>
+    </div>
+    
+    <script>
+        // Install banner management
+        function dismissInstallBanner() {
+            document.getElementById('installBanner').classList.add('hidden');
+            localStorage.setItem('installBannerDismissed', 'true');
+        }
+        
+        // Check if banner was previously dismissed
+        window.addEventListener('load', function() {
+            if (localStorage.getItem('installBannerDismissed') === 'true') {
+                document.getElementById('installBanner').classList.add('hidden');
+            }
+        });
+        
+        // Load tournament data from localStorage
+        function loadTournamentData() {
+            try {
+                var stored = localStorage.getItem('tournamentData');
+                if (stored) {
+                    return JSON.parse(stored);
+                }
+            } catch(e) {
+                console.error('Error loading tournament data:', e);
+            }
+            return null;
+        }
+        
+        // Convert text with bullets to HTML
+        function textToHtml(text) {
+            if (!text || !text.trim()) {
+                return '';
+            }
+            
+            var lines = text.split('\n');
+            var html = '';
+            
+            for (var i = 0; i < lines.length; i++) {
+                var line = lines[i].trim();
+                if (line.startsWith('•')) {
+                    html += '<p style="margin-left: 20px; margin: 8px 0;">• ' + line.substring(1).trim() + '</p>';
+                } else if (line) {
+                    html += '<p style="margin: 8px 0;">' + line + '</p>';
+                }
+            }
+            
+            return html || '<p class="empty-state">No content available</p>';
+        }
+        
+        // Calculate team standings
+        function calculateStandings(matchResults, teams) {
+            var standings = {};
+            
+            // Initialize standings for all teams
+            teams.forEach(function(team) {
+                standings[team.name] = {
+                    teamName: team.name,
+                    gp: 0,
+                    w: 0,
+                    l: 0,
+                    t: 0,
+                    gf: 0,
+                    ga: 0,
+                    pts: 0
+                };
+            });
+            
+            // Process match results
+            matchResults.forEach(function(result) {
+                if (standings[result.team1Name] && standings[result.team2Name]) {
+                    standings[result.team1Name].gp++;
+                    standings[result.team2Name].gp++;
+                    standings[result.team1Name].gf += result.team1Score;
+                    standings[result.team1Name].ga += result.team2Score;
+                    standings[result.team2Name].gf += result.team2Score;
+                    standings[result.team2Name].ga += result.team1Score;
+                    
+                    if (result.team1Score > result.team2Score) {
+                        standings[result.team1Name].w++;
+                        standings[result.team1Name].pts += 2;
+                        standings[result.team2Name].l++;
+                    } else if (result.team2Score > result.team1Score) {
+                        standings[result.team2Name].w++;
+                        standings[result.team2Name].pts += 2;
+                        standings[result.team1Name].l++;
+                    } else {
+                        standings[result.team1Name].t++;
+                        standings[result.team2Name].t++;
+                        standings[result.team1Name].pts += 1;
+                        standings[result.team2Name].pts += 1;
+                    }
+                }
+            });
+            
+            // Convert to array and sort
+            var standingsArray = Object.values(standings);
+            standingsArray.sort(function(a, b) {
+                if (b.pts !== a.pts) return b.pts - a.pts;
+                var diffA = a.gf - a.ga;
+                var diffB = b.gf - b.ga;
+                if (diffB !== diffA) return diffB - diffA;
+                return b.gf - a.gf;
+            });
+            
+            return standingsArray;
+        }
+        
+        // Display all tournament data
+        function loadAndDisplay() {
+            var data = loadTournamentData();
+            
+            if (!data) {
+                console.log('No tournament data found');
+                return;
+            }
+            
+            // Update last updated time
+            document.getElementById('lastUpdated').textContent = new Date().toLocaleString();
+            
+            // Display logo
+            if (data.tournamentLogo) {
+                document.getElementById('logoContainer').style.display = 'block';
+                document.getElementById('tournamentLogo').src = data.tournamentLogo;
+            } else {
+                document.getElementById('logoContainer').style.display = 'none';
+            }
+            
+            // Display welcome message
+            var welcomeMessage = data.welcomeMessage || {};
+            var welcomeSection = document.getElementById('welcomeSection');
+            var welcomeContent = document.getElementById('welcomeContent');
+            
+            if (welcomeMessage.message || welcomeMessage.directorName) {
+                var welcomeHTML = '';
+                if (welcomeMessage.message) {
+                    welcomeHTML += '<p style="font-size: 16px; margin-bottom: 15px;">' + welcomeMessage.message + '</p>';
+                }
+                if (welcomeMessage.directorName || welcomeMessage.directorPhone || welcomeMessage.directorEmail) {
+                    welcomeHTML += '<div style="margin-top: 15px; padding-top: 15px; border-top: 1px solid #ccc;">';
+                    welcomeHTML += '<p style="font-weight: bold; margin-bottom: 8px;">Tournament Director Contact:</p>';
+                    if (welcomeMessage.directorName) {
+                        welcomeHTML += '<p style="margin: 4px 0;">👤 ' + welcomeMessage.directorName + '</p>';
+                    }
+                    if (welcomeMessage.directorPhone) {
+                        welcomeHTML += '<p style="margin: 4px 0;">📞 ' + welcomeMessage.directorPhone + '</p>';
+                    }
+                    if (welcomeMessage.directorEmail) {
+                        welcomeHTML += '<p style="margin: 4px 0;">✉️ ' + welcomeMessage.directorEmail + '</p>';
+                    }
+                    welcomeHTML += '</div>';
+                }
+                welcomeContent.innerHTML = welcomeHTML;
+                welcomeSection.style.display = 'block';
+            } else {
+                welcomeSection.style.display = 'none';
+            }
+            
+            // Display important information
+            var importantInfo = data.importantInfo || {};
+            document.getElementById('importantInfoContent').innerHTML = 
+                textToHtml(importantInfo.content) || '<p class="empty-state">No information available yet</p>';
+            
+            // Display itinerary
+            var itineraryInfo = data.itineraryInfo || {};
+            document.getElementById('itineraryContent').innerHTML = 
+                textToHtml(itineraryInfo.content) || '<p class="empty-state">Itinerary will be posted soon</p>';
+            
+            // Display schedule
+            var scheduleMatches = data.scheduleMatches || [];
+            var scheduleHtml = '';
+            if (scheduleMatches.length > 0) {
+                scheduleHtml = '<table>';
+                scheduleHtml += '<thead><tr><th>Match</th><th>Teams</th><th>Date</th><th>Time</th><th>Location</th></tr></thead>';
+                scheduleHtml += '<tbody>';
+                scheduleMatches.forEach(function(match, i) {
+                    scheduleHtml += '<tr>';
+                    scheduleHtml += '<td><strong>Match ' + (i + 1) + '</strong></td>';
+                    scheduleHtml += '<td>' + match.team1Name + ' vs ' + match.team2Name + '</td>';
+                    scheduleHtml += '<td>' + (match.date || 'TBD') + '</td>';
+                    scheduleHtml += '<td>' + (match.time || 'TBD') + '</td>';
+                    scheduleHtml += '<td>' + (match.location || 'TBD') + '</td>';
+                    scheduleHtml += '</tr>';
+                });
+                scheduleHtml += '</tbody></table>';
+            } else {
+                scheduleHtml = '<p class="empty-state">Schedule will be posted soon</p>';
+            }
+            document.getElementById('scheduleContainer').innerHTML = scheduleHtml;
+            
+            // Display standings
+            var matchResults = data.matchResults || [];
+            var teams = data.teams || [];
+            var standingsHtml = '';
+            if (matchResults.length > 0 && teams.length > 0) {
+                var standings = calculateStandings(matchResults, teams);
+                standingsHtml = '<table>';
+                standingsHtml += '<thead><tr><th>Rank</th><th>Team</th><th>GP</th><th>W</th><th>L</th><th>T</th><th>GF</th><th>GA</th><th>Diff</th><th>Pts</th></tr></thead>';
+                standingsHtml += '<tbody>';
+                standings.forEach(function(team, i) {
+                    var diff = team.gf - team.ga;
+                    var rankClass = '';
+                    var medal = '';
+                    if (i === 0) {
+                        rankClass = 'rank-1';
+                        medal = '🥇 ';
+                    } else if (i === 1) {
+                        rankClass = 'rank-2';
+                        medal = '🥈 ';
+                    } else if (i === 2) {
+                        rankClass = 'rank-3';
+                        medal = '🥉 ';
+                    }
+                    
+                    standingsHtml += '<tr class="' + rankClass + '">';
+                    standingsHtml += '<td><strong>' + medal + (i + 1) + '</strong></td>';
+                    standingsHtml += '<td><strong>' + team.teamName + '</strong></td>';
+                    standingsHtml += '<td>' + team.gp + '</td>';
+                    standingsHtml += '<td>' + team.w + '</td>';
+                    standingsHtml += '<td>' + team.l + '</td>';
+                    standingsHtml += '<td>' + team.t + '</td>';
+                    standingsHtml += '<td>' + team.gf + '</td>';
+                    standingsHtml += '<td>' + team.ga + '</td>';
+                    standingsHtml += '<td>' + (diff >= 0 ? '+' : '') + diff + '</td>';
+                    standingsHtml += '<td><strong>' + team.pts + '</strong></td>';
+                    standingsHtml += '</tr>';
+                });
+                standingsHtml += '</tbody></table>';
+            } else {
+                standingsHtml = '<p class="empty-state">Standings will be updated after matches</p>';
+            }
+            document.getElementById('standingsContainer').innerHTML = standingsHtml;
+            
+            // Display player statistics
+            var playerStats = data.playerStats || [];
+            var statsHtml = '';
+            if (playerStats.length > 0) {
+                // Sort by points, then goals
+                var sortedStats = playerStats.slice().sort(function(a, b) {
+                    if (b.points !== a.points) return b.points - a.points;
+                    return b.goals - a.goals;
+                });
+                
+                statsHtml = '<table>';
+                statsHtml += '<thead><tr><th>Rank</th><th>Player</th><th>Goals</th><th>Assists</th><th>Points</th></tr></thead>';
+                statsHtml += '<tbody>';
+                sortedStats.forEach(function(stat, i) {
+                    var rankClass = '';
+                    var medal = '';
+                    if (i === 0) {
+                        rankClass = 'rank-1';
+                        medal = '🥇 ';
+                    } else if (i === 1) {
+                        rankClass = 'rank-2';
+                        medal = '🥈 ';
+                    } else if (i === 2) {
+                        rankClass = 'rank-3';
+                        medal = '🥉 ';
+                    }
+                    
+                    statsHtml += '<tr class="' + rankClass + '">';
+                    statsHtml += '<td><strong>' + medal + (i + 1) + '</strong></td>';
+                    statsHtml += '<td>' + stat.name + '</td>';
+                    statsHtml += '<td>' + stat.goals + '</td>';
+                    statsHtml += '<td>' + stat.assists + '</td>';
+                    statsHtml += '<td><strong>' + stat.points + '</strong></td>';
+                    statsHtml += '</tr>';
+                });
+                statsHtml += '</tbody></table>';
+            } else {
+                statsHtml = '<p class="empty-state">Player stats will be posted during tournament</p>';
+            }
+            document.getElementById('playerStatsContainer').innerHTML = statsHtml;
+            
+            // Display announcements
+            var announcements = data.announcements || [];
+            var announcementsHtml = '';
+            if (announcements.length > 0) {
+                announcements.forEach(function(ann) {
+                    announcementsHtml += '<div class="announcement">';
+                    announcementsHtml += '<h3>' + ann.title + '</h3>';
+                    announcementsHtml += '<div class="date">📅 ' + ann.date + '</div>';
+                    announcementsHtml += '<p>' + ann.content + '</p>';
+                    announcementsHtml += '</div>';
+                });
+            } else {
+                announcementsHtml = '<p class="empty-state">No announcements at this time</p>';
+            }
+            document.getElementById('announcementsContainer').innerHTML = announcementsHtml;
+        }
+        
+        // Load data on page load
+        loadAndDisplay();
+        
+        // Auto-refresh every 30 seconds
+        setInterval(loadAndDisplay, 30000);
+    </script>
+</body>
+</html>

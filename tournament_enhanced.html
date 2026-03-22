@@ -630,6 +630,7 @@
             }
         }
     </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
 </head>
 <body>
     <header>
@@ -644,6 +645,7 @@
             <button id="navStats" class="inactive" onclick="showSection('stats')">Stats</button>
             <button id="navBracket" class="inactive" onclick="showSection('bracket')">Playoff Bracket</button>
             <button id="navInfo" class="inactive" onclick="showSection('info')">Info</button>
+            <button id="navGallery" class="inactive" onclick="showSection('gallery')">📸 Gallery</button>
             <button id="navPublic" class="inactive" onclick="showSection('public')">Public View</button>
         </div>
     </header>
@@ -676,9 +678,15 @@
             </div>
             <div class="grid-2">
                 <div class="form-group">
+                    <label for="playerEmail">Email Address</label>
+                    <input type="email" id="playerEmail" placeholder="Enter email address">
+                </div>
+                <div class="form-group">
                     <label for="playerNumber">Jersey Number</label>
                     <input type="number" id="playerNumber" placeholder="Enter jersey #">
                 </div>
+            </div>
+            <div class="grid-2">
                 <div class="form-group">
                     <label for="playerSkill">Skill Level</label>
                     <select id="playerSkill">
@@ -692,6 +700,59 @@
             <button class="submit" onclick="addPlayer()">Register Player</button>
         </div>
 
+
+        <div class="section-header" onclick="toggleCollapse('rosterImport')" style="margin-top: 30px;">
+            <h2>📥 Import Roster from PDF or List</h2>
+            <button class="collapse-btn" id="collapseRosterImport">Expand</button>
+        </div>
+        <div id="rosterImport" class="collapsible-content collapsed" style="max-height:0;overflow:hidden;">
+            <p style="color:#fef3c7;margin-bottom:18px;">
+                Upload a PDF roster or paste a list of names/emails. The importer will automatically find all email addresses and match them to names where possible.
+            </p>
+
+            <!-- PDF Upload -->
+            <div style="background:rgba(15,39,68,0.6);border:2px dashed #0891b2;border-radius:10px;padding:20px;text-align:center;margin-bottom:20px;">
+                <p style="color:#94a3b8;font-size:13px;margin-bottom:12px;">Option 1 — Upload a PDF</p>
+                <input type="file" id="rosterPdfInput" accept=".pdf" style="display:none;" onchange="handleRosterPdf(event)">
+                <button onclick="document.getElementById('rosterPdfInput').click()"
+                    style="background:#0891b2;color:white;padding:12px 24px;font-size:15px;border-radius:8px;">
+                    📄 Choose PDF File
+                </button>
+                <p id="pdfStatus" style="color:#94a3b8;font-size:13px;margin-top:10px;"></p>
+            </div>
+
+            <!-- Paste -->
+            <div style="margin-bottom:20px;">
+                <p style="color:#94a3b8;font-size:13px;margin-bottom:8px;">Option 2 — Paste a list (one entry per line)</p>
+                <textarea id="rosterPasteBox" rows="8" placeholder="Paste names and/or emails here, one per line. Examples:
+John Smith  john@example.com
+jane.doe@hockey.ca
+Mike Johnson  mike@example.com  #14"
+                    style="width:100%;background:#0f2744;color:white;border:1px solid #0891b2;border-radius:8px;padding:12px;font-size:14px;resize:vertical;"></textarea>
+                <button onclick="parseAndPreviewText(document.getElementById('rosterPasteBox').value)"
+                    style="background:#1e40af;color:white;padding:10px 20px;border-radius:8px;margin-top:10px;">
+                    🔍 Parse List
+                </button>
+            </div>
+
+            <!-- Preview -->
+            <div id="importPreviewContainer" style="display:none;">
+                <h3 style="color:#fde047;margin-bottom:12px;">📋 Preview — <span id="importFoundCount">0</span> entries found</h3>
+                <p style="color:#94a3b8;font-size:13px;margin-bottom:12px;">Review and edit before importing. Uncheck any you want to skip.</p>
+                <div id="importPreviewList" style="max-height:300px;overflow-y:auto;margin-bottom:15px;"></div>
+                <div style="display:flex;gap:12px;flex-wrap:wrap;">
+                    <button onclick="importPreviewedPlayers()"
+                        style="background:#22c55e;color:white;padding:12px 24px;border-radius:8px;font-size:15px;font-weight:bold;">
+                        ✅ Import All Checked
+                    </button>
+                    <button onclick="clearImportPreview()"
+                        style="background:#64748b;color:white;padding:10px 18px;border-radius:8px;">
+                        ✖ Cancel
+                    </button>
+                </div>
+            </div>
+        </div>
+
         <div class="section-header" onclick="toggleCollapse('playerList')" style="margin-top: 30px;">
             <h2>Registered Players</h2>
             <button class="collapse-btn" id="collapsePlayerList">Collapse</button>
@@ -699,6 +760,69 @@
         <div id="playerList" class="collapsible-content">
             <div id="playersContainer"></div>
         </div>
+
+        <!-- Signup Form Publish Control -->
+        <div class="section-header" onclick="toggleCollapse('signupControl')" style="margin-top: 30px;">
+            <h2>📋 Pre-Tournament Sign-Up</h2>
+            <button class="collapse-btn" id="collapseSignupControl">Expand</button>
+        </div>
+        <div id="signupControl" class="collapsible-content collapsed" style="max-height:0;overflow:hidden;">
+
+            <!-- Toggle Banner -->
+            <div id="signupToggleBanner" style="border-radius:10px;padding:18px 22px;margin-bottom:22px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:14px;">
+                <div>
+                    <div style="font-size:17px;font-weight:bold;" id="signupToggleTitle">⚙️ Signup Form</div>
+                    <div style="font-size:13px;margin-top:3px;" id="signupToggleDesc">Loading...</div>
+                </div>
+                <button id="signupToggleBtn" onclick="toggleSignupForm()"
+                    style="padding:12px 28px;border:none;border-radius:8px;font-size:15px;font-weight:bold;cursor:pointer;min-width:200px;">
+                    Loading...
+                </button>
+            </div>
+
+            <p style="color:#94a3b8;font-size:13px;margin-bottom:20px;">
+                Players who sign up via the public page appear below. Review them, then import to the roster individually or all at once.
+            </p>
+
+            <!-- Signups toolbar -->
+            <div style="display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-bottom:16px;">
+                <span id="signupBadge" style="background:#0891b2;color:white;padding:5px 14px;border-radius:20px;font-size:13px;font-weight:bold;">0 sign-ups</span>
+                <button onclick="loadSignups()" style="background:#1e40af;color:white;padding:8px 14px;border-radius:6px;font-size:13px;font-weight:bold;border:none;cursor:pointer;">🔄 Refresh</button>
+                <button onclick="exportSignupsCSV()" style="background:#0891b2;color:white;padding:8px 14px;border-radius:6px;font-size:13px;font-weight:bold;border:none;cursor:pointer;">📥 Export CSV</button>
+                <span class="tooltip-wrap">
+                    <button onclick="importAllSignups()" style="background:#22c55e;color:white;padding:8px 14px;border-radius:6px;font-size:13px;font-weight:bold;border:none;cursor:pointer;">⬆️ Import All to Roster</button>
+                    <span class="tooltip-box">
+                        Adds every player from the sign-up list directly into the <strong>Tournament Roster</strong> (Players tab). Duplicate names are skipped automatically.
+                    </span>
+                </span>
+                <button onclick="clearSignups()" style="background:#dc2626;color:white;padding:8px 14px;border-radius:6px;font-size:13px;font-weight:bold;border:none;cursor:pointer;">🗑️ Clear All</button>
+            </div>
+
+            <div id="signupsEmpty" style="text-align:center;padding:30px;color:#64748b;display:none;">
+                <div style="font-size:36px;margin-bottom:10px;">📭</div>
+                <p>No sign-ups yet. Publish the form above to start collecting registrations!</p>
+            </div>
+
+            <div style="overflow-x:auto;">
+                <table id="signupsTable" style="width:100%;border-collapse:collapse;font-size:14px;display:none;">
+                    <thead>
+                        <tr style="background:#001f3f;color:white;">
+                            <th style="padding:11px 14px;text-align:left;">Name</th>
+                            <th style="padding:11px 14px;text-align:left;">Phone</th>
+                            <th style="padding:11px 14px;text-align:center;">Age</th>
+                            <th style="padding:11px 14px;text-align:center;">Skill</th>
+                            <th style="padding:11px 14px;text-align:center;">Position</th>
+                            <th style="padding:11px 14px;text-align:left;">Email</th>
+                            <th style="padding:11px 14px;text-align:left;">Signed Up</th>
+                            <th style="padding:11px 14px;text-align:center;">Status</th>
+                            <th style="padding:11px 14px;text-align:center;">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="signupsTableBody"></tbody>
+                </table>
+            </div>
+        </div>
+
     </div>
 
     <!-- Teams Section -->
@@ -1013,6 +1137,23 @@
                 <div id="publicImportantInfo" style="color: #333; margin-top: 15px;"></div>
             </div>
 
+            <!-- Signup form preview (shown/hidden by admin toggle) -->
+            <div id="publicSignupPreview" style="margin-bottom:30px;display:none;">
+                <h2 style="color:#001f3f;border-bottom:2px solid #dc2626;padding-bottom:10px;">🏒 Sign Up to Play</h2>
+                <div style="background:#f0fdf4;border:2px solid #22c55e;border-radius:10px;padding:20px;margin-top:15px;">
+                    <p style="color:#166534;font-weight:bold;margin-bottom:8px;">✅ Sign-up form is LIVE on the public page</p>
+                    <p style="color:#374151;font-size:13px;">Players can fill in: Name · Phone · Age · Skill Level · Position · Email</p>
+                    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:8px;margin-top:14px;opacity:0.6;pointer-events:none;">
+                        <div style="background:#e5e7eb;border-radius:5px;padding:8px;font-size:12px;color:#374151;">Full Name *</div>
+                        <div style="background:#e5e7eb;border-radius:5px;padding:8px;font-size:12px;color:#374151;">Phone Number *</div>
+                        <div style="background:#e5e7eb;border-radius:5px;padding:8px;font-size:12px;color:#374151;">Age *</div>
+                        <div style="background:#e5e7eb;border-radius:5px;padding:8px;font-size:12px;color:#374151;">Skill Level *</div>
+                        <div style="background:#e5e7eb;border-radius:5px;padding:8px;font-size:12px;color:#374151;">Position</div>
+                        <div style="background:#e5e7eb;border-radius:5px;padding:8px;font-size:12px;color:#374151;">Email (optional)</div>
+                    </div>
+                </div>
+            </div>
+
             <div style="margin-bottom: 30px;">
                 <h2 style="color: #001f3f; border-bottom: 2px solid #dc2626; padding-bottom: 10px;">📅 Tournament Itinerary</h2>
                 <div id="publicItinerary" style="color: #333; margin-top: 15px;"></div>
@@ -1075,7 +1216,42 @@
                 <div id="publicAnnouncementsList"></div>
                 <p id="publicAnnouncementsEmpty" style="color: #999; text-align: center; margin-top: 20px;">No announcements at this time</p>
             </div>
+
+            <div style="margin-bottom: 30px;" id="publicGalleryContainer" style="display:none;">
+                <h2 style="color: #001f3f; border-bottom: 2px solid #dc2626; padding-bottom: 10px;">📸 Photo Gallery</h2>
+                <div id="publicGalleryGrid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:10px;margin-top:15px;"></div>
+                <p id="publicGalleryEmpty" style="color: #999; text-align: center; margin-top: 20px;">No photos yet</p>
+            </div>
         </div>
+    </div>
+
+
+
+    <!-- Gallery Section -->
+    <div id="gallerySection" class="section hidden">
+        <h2>📸 Photo Gallery</h2>
+        <p style="color:#fef3c7;margin-bottom:20px;">Upload photos from the tournament. They will appear instantly on the public view.</p>
+
+        <div style="background:rgba(15,39,68,0.6);border:2px dashed #0891b2;border-radius:10px;padding:25px;text-align:center;margin-bottom:25px;">
+            <input type="file" id="photoUpload" accept="image/*" multiple style="display:none;" onchange="handlePhotoUpload(event)">
+            <button onclick="document.getElementById('photoUpload').click()" style="background:#0891b2;color:white;padding:14px 28px;font-size:16px;border-radius:8px;margin-bottom:10px;">
+                📷 Select Photos
+            </button>
+            <p style="color:#94a3b8;font-size:13px;margin-top:8px;">JPG, PNG, HEIC supported · Photos are auto-compressed · Multiple allowed</p>
+            <div id="uploadProgress" style="display:none;margin-top:15px;">
+                <div style="background:#1e3a5f;border-radius:6px;height:10px;overflow:hidden;">
+                    <div id="uploadBar" style="background:#22c55e;height:100%;width:0%;transition:width 0.3s;"></div>
+                </div>
+                <p id="uploadStatus" style="color:#94a3b8;font-size:13px;margin-top:6px;"></p>
+            </div>
+        </div>
+
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:15px;flex-wrap:wrap;gap:10px;">
+            <p id="photoCount" style="color:#fef3c7;font-size:14px;">No photos uploaded yet</p>
+            <button onclick="clearAllPhotos()" style="background:#dc2626;color:white;padding:8px 16px;font-size:13px;border-radius:6px;">🗑️ Clear All Photos</button>
+        </div>
+
+        <div id="adminGalleryGrid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:12px;"></div>
     </div>
 
     <script>
@@ -1091,58 +1267,127 @@
         var announcements = [];
         var tournamentLogo = null;
         var playoffBracket = [];
+        var galleryPhotos = [];
+        var signupFormVisible = false;  // admin must explicitly publish the form
 
-        // Load data from localStorage
+        // ── Firebase config ──────────────────────────────────────────
+        var FIREBASE_URL = 'https://hockey-tournament-dd737-default-rtdb.firebaseio.com/tournamentData.json';
+        var FIREBASE_SIGNUPS_URL = 'https://hockey-tournament-dd737-default-rtdb.firebaseio.com/signups.json';
+
+        // Load data from Firebase (falls back to localStorage if offline)
         function loadData() {
-            try {
-                var stored = localStorage.getItem('tournamentData');
-                if (stored) {
-                    var data = JSON.parse(stored);
-                    players = data.players || [];
-                    teams = data.teams || [];
-                    scheduleMatches = data.scheduleMatches || [];
-                    matchResults = data.matchResults || [];
-                    playerStats = data.playerStats || [];
-                    importantInfo = data.importantInfo || { content: '' };
-                    itineraryInfo = data.itineraryInfo || { content: '' };
-                    welcomeMessage = data.welcomeMessage || { message: '', directorName: '', directorPhone: '', directorEmail: '' };
-                    announcements = data.announcements || [];
-                    tournamentLogo = data.tournamentLogo || null;
-                    playoffBracket = data.playoffBracket || [];
-                }
-            } catch(e) {
-                console.error('Error loading data:', e);
-            }
+            return fetch(FIREBASE_URL)
+                .then(function(res) { return res.json(); })
+                .then(function(data) {
+                    if (data) {
+                        players        = data.players        || [];
+                        teams          = data.teams          || [];
+                        scheduleMatches= data.scheduleMatches|| [];
+                        matchResults   = data.matchResults   || [];
+                        playerStats    = data.playerStats    || [];
+                        importantInfo  = data.importantInfo  || { content: '' };
+                        itineraryInfo  = data.itineraryInfo  || { content: '' };
+                        welcomeMessage = data.welcomeMessage || { message: '', directorName: '', directorPhone: '', directorEmail: '' };
+                        announcements  = data.announcements  || [];
+                        tournamentLogo = data.tournamentLogo || null;
+                        playoffBracket = data.playoffBracket || [];
+                        galleryPhotos      = data.galleryPhotos      || [];
+                        signupFormVisible  = (data.signupFormVisible !== undefined) ? data.signupFormVisible : false;
+                        // Cache locally for offline resilience
+                        localStorage.setItem('tournamentData', JSON.stringify(data));
+                    }
+                })
+                .catch(function(e) {
+                    console.warn('Firebase load failed, using localStorage:', e);
+                    try {
+                        var stored = localStorage.getItem('tournamentData');
+                        if (stored) {
+                            var data = JSON.parse(stored);
+                            players        = data.players        || [];
+                            teams          = data.teams          || [];
+                            scheduleMatches= data.scheduleMatches|| [];
+                            matchResults   = data.matchResults   || [];
+                            playerStats    = data.playerStats    || [];
+                            importantInfo  = data.importantInfo  || { content: '' };
+                            itineraryInfo  = data.itineraryInfo  || { content: '' };
+                            welcomeMessage = data.welcomeMessage || { message: '', directorName: '', directorPhone: '', directorEmail: '' };
+                            announcements  = data.announcements  || [];
+                            tournamentLogo = data.tournamentLogo || null;
+                            playoffBracket = data.playoffBracket || [];
+                        }
+                    } catch(e2) { console.error('localStorage fallback failed:', e2); }
+                });
         }
 
-        // Save data to localStorage
+        // Save data to Firebase and localStorage
         function saveData() {
-            try {
-                var data = {
-                    players: players,
-                    teams: teams,
-                    scheduleMatches: scheduleMatches,
-                    matchResults: matchResults,
-                    playerStats: playerStats,
-                    importantInfo: importantInfo,
-                    itineraryInfo: itineraryInfo,
-                    welcomeMessage: welcomeMessage,
-                    announcements: announcements,
-                    tournamentLogo: tournamentLogo,
-                    playoffBracket: playoffBracket
-                };
-                localStorage.setItem('tournamentData', JSON.stringify(data));
-            } catch(e) {
-                console.error('Error saving data:', e);
-            }
+            var fullData = {
+                players: players,
+                teams: teams,
+                scheduleMatches: scheduleMatches,
+                matchResults: matchResults,
+                playerStats: playerStats,
+                importantInfo: importantInfo,
+                itineraryInfo: itineraryInfo,
+                welcomeMessage: welcomeMessage,
+                announcements: announcements,
+                tournamentLogo: tournamentLogo,
+                playoffBracket: playoffBracket,
+                galleryPhotos: galleryPhotos,
+                signupFormVisible: signupFormVisible
+            };
+            // Always save complete data locally (photos included)
+            try { localStorage.setItem('tournamentData', JSON.stringify(fullData)); } catch(e) {}
+
+            // Firebase payload — strip base64 images to keep payload small & reliable
+            var firebaseData = {
+                players: players,
+                teams: teams,
+                scheduleMatches: scheduleMatches,
+                matchResults: matchResults,
+                playerStats: playerStats,
+                importantInfo: importantInfo,
+                itineraryInfo: itineraryInfo,
+                welcomeMessage: welcomeMessage,
+                announcements: announcements,
+                tournamentLogo: tournamentLogo,
+                playoffBracket: playoffBracket,
+                signupFormVisible: signupFormVisible,
+                galleryPhotos: (galleryPhotos || []).map(function(p) {
+                    return { id: p.id, caption: p.caption || '', timestamp: p.timestamp || '', dataUrl: p.dataUrl || '' };
+                })
+            };
+
+            fetch(FIREBASE_URL, {
+                method: 'PUT',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(firebaseData)
+            }).then(function(res) {
+                if (!res.ok) throw new Error('HTTP ' + res.status);
+                showSaveConfirmation();
+            }).catch(function(e) {
+                console.error('Firebase save failed:', e);
+                showSaveConfirmation('local');
+            });
         }
 
-        // Initialize data on load
-        loadData();
+        function showSaveConfirmation() {
+            var el = document.getElementById('saveConfirmation');
+            if (!el) {
+                el = document.createElement('div');
+                el.id = 'saveConfirmation';
+                el.style.cssText = 'position:fixed;bottom:20px;right:20px;background:#22c55e;color:white;padding:12px 20px;border-radius:8px;font-weight:bold;z-index:9999;transition:opacity 0.5s;';
+                el.textContent = '✅ Saved to cloud!';
+                document.body.appendChild(el);
+            }
+            el.style.opacity = '1';
+            el.style.display = 'block';
+            setTimeout(function() { el.style.opacity = '0'; setTimeout(function(){ el.style.display='none'; }, 500); }, 2000);
+        }
 
         // Navigation
         function showSection(sectionName) {
-            var sections = ['players', 'teams', 'schedule', 'results', 'stats', 'bracket', 'info', 'public'];
+            var sections = ['players', 'teams', 'schedule', 'results', 'stats', 'bracket', 'info', 'gallery', 'public'];
             sections.forEach(function(sec) {
                 var sectionEl = document.getElementById(sec + 'Section');
                 var navBtn = document.getElementById('nav' + sec.charAt(0).toUpperCase() + sec.slice(1));
@@ -1165,6 +1410,8 @@
                 updateStatCards();
             } else if (sectionName === 'public') {
                 renderPublicView();
+            } else if (sectionName === 'gallery') {
+                renderAdminGallery();
             } else if (sectionName === 'bracket') {
                 renderBracket();
             } else if (sectionName === 'info') {
@@ -1183,13 +1430,22 @@
         function toggleCollapse(contentId) {
             var content = document.getElementById(contentId);
             var btn = document.getElementById('collapse' + contentId.charAt(0).toUpperCase() + contentId.slice(1));
-            
+            if (!content || !btn) return;
             if (content.classList.contains('collapsed')) {
+                content.style.overflow = 'visible';
+                content.style.maxHeight = 'none';
+                var h = content.scrollHeight;
+                content.style.overflow = '';
+                content.style.maxHeight = '0';
+                content.offsetHeight;
                 content.classList.remove('collapsed');
-                content.style.maxHeight = content.scrollHeight + 'px';
+                content.style.maxHeight = Math.max(h, 600) + 'px';
                 btn.textContent = 'Collapse';
                 localStorage.setItem('panel_' + contentId, 'expanded');
+                if (contentId === 'signupControl') { updateToggleBanner(); loadSignups(); }
             } else {
+                content.style.maxHeight = content.scrollHeight + 'px';
+                content.offsetHeight;
                 content.classList.add('collapsed');
                 content.style.maxHeight = '0';
                 btn.textContent = 'Expand';
@@ -1199,7 +1455,7 @@
 
         function restorePanelStates() {
             var panels = [
-                'playerRegistration', 'playerList', 'teamSetup', 'teamAssignment',
+                'playerRegistration', 'rosterImport', 'playerList', 'signupControl', 'teamSetup', 'teamAssignment',
                 'scheduleMatches', 'matchResults', 'playerStatsEntry', 'teamStandings',
                 'playerStats', 'playoffBracket', 'bracketMatchEntry', 'tournamentLogo',
                 'importantInfo', 'itinerary', 'announcements'
@@ -1217,7 +1473,7 @@
                         btn.textContent = 'Expand';
                     } else {
                         content.classList.remove('collapsed');
-                        content.style.maxHeight = content.scrollHeight + 'px';
+                        content.style.maxHeight = '3000px';
                         btn.textContent = 'Collapse';
                     }
                 }
@@ -1226,7 +1482,7 @@
 
         function collapseAllPanels() {
             var panels = [
-                'playerRegistration', 'playerList', 'teamSetup', 'teamAssignment',
+                'playerRegistration', 'rosterImport', 'playerList', 'signupControl', 'teamSetup', 'teamAssignment',
                 'scheduleMatches', 'matchResults', 'playerStatsEntry', 'teamStandings',
                 'playerStats', 'playoffBracket', 'bracketMatchEntry', 'tournamentLogo',
                 'importantInfo', 'itinerary', 'announcements'
@@ -1248,6 +1504,7 @@
         // Player Management
         function addPlayer() {
             var name = document.getElementById('playerName').value.trim();
+            var email = document.getElementById('playerEmail').value.trim();
             var age = document.getElementById('playerAge').value;
             var number = document.getElementById('playerNumber').value;
             var skill = document.getElementById('playerSkill').value;
@@ -1260,6 +1517,7 @@
             var player = {
                 id: Date.now(),
                 name: name,
+                email: email || '',
                 age: age || 'N/A',
                 number: number || 'N/A',
                 skill: skill || 'N/A',
@@ -1274,6 +1532,7 @@
 
             // Clear form
             document.getElementById('playerName').value = '';
+            document.getElementById('playerEmail').value = '';
             document.getElementById('playerAge').value = '';
             document.getElementById('playerNumber').value = '';
             document.getElementById('playerSkill').value = '';
@@ -2563,9 +2822,36 @@
                 
                 // Announcements
                 renderPublicAnnouncements();
+
+                // Gallery
+                renderPublicGalleryPreview();
+
+                // Signup form preview
+                var signupPreview = document.getElementById('publicSignupPreview');
+                if (signupPreview) {
+                    signupPreview.style.display = signupFormVisible ? 'block' : 'none';
+                }
             } catch(e) {
                 console.error('Error rendering public view:', e);
             }
+        }
+
+        function renderPublicGalleryPreview() {
+            var grid = document.getElementById('publicGalleryGrid');
+            var empty = document.getElementById('publicGalleryEmpty');
+            if (!grid) return;
+            if (!galleryPhotos || !galleryPhotos.length) {
+                grid.innerHTML = '';
+                empty.style.display = 'block';
+                return;
+            }
+            empty.style.display = 'none';
+            grid.innerHTML = galleryPhotos.map(function(p) {
+                return '<div style="border-radius:8px;overflow:hidden;box-shadow:0 2px 6px rgba(0,0,0,0.15);">' +
+                    '<img src="' + p.dataUrl + '" style="width:100%;height:120px;object-fit:cover;display:block;">' +
+                    (p.caption ? '<p style="font-size:12px;color:#444;padding:5px 6px;margin:0;background:#f8fafc;">' + p.caption + '</p>' : '') +
+                    '</div>';
+            }).join('');
         }
 
         function renderPublicStandings() {
@@ -2665,6 +2951,535 @@
             });
         }
 
+
+        // ── Photo Gallery ────────────────────────────────────────────────────
+
+        function compressImage(file, maxW, maxH, quality, callback) {
+            var reader = new FileReader();
+            reader.onload = function(e) {
+                var img = new Image();
+                img.onload = function() {
+                    var w = img.width, h = img.height;
+                    if (w > maxW) { h = h * maxW / w; w = maxW; }
+                    if (h > maxH) { w = w * maxH / h; h = maxH; }
+                    var canvas = document.createElement('canvas');
+                    canvas.width = w; canvas.height = h;
+                    canvas.getContext('2d').drawImage(img, 0, 0, w, h);
+                    callback(canvas.toDataURL('image/jpeg', quality));
+                };
+                img.src = e.target.result;
+            };
+            reader.readAsDataURL(file);
+        }
+
+        function handlePhotoUpload(event) {
+            var files = Array.from(event.target.files);
+            if (!files.length) return;
+
+            var progress = document.getElementById('uploadProgress');
+            var bar = document.getElementById('uploadBar');
+            var status = document.getElementById('uploadStatus');
+            progress.style.display = 'block';
+
+            var processed = 0;
+            files.forEach(function(file) {
+                compressImage(file, 1200, 1200, 0.75, function(dataUrl) {
+                    var photo = {
+                        id: Date.now() + '_' + Math.random().toString(36).substr(2,6),
+                        dataUrl: dataUrl,
+                        caption: file.name.replace(/\.[^.]+$/, ''),
+                        timestamp: new Date().toLocaleString()
+                    };
+                    galleryPhotos.push(photo);
+                    processed++;
+                    var pct = Math.round(processed / files.length * 100);
+                    bar.style.width = pct + '%';
+                    status.textContent = 'Processed ' + processed + ' of ' + files.length + ' photos...';
+
+                    if (processed === files.length) {
+                        status.textContent = 'Saving to cloud...';
+                        saveData();
+                        setTimeout(function() {
+                            progress.style.display = 'none';
+                            bar.style.width = '0%';
+                        }, 2000);
+                        renderAdminGallery();
+                        event.target.value = '';
+                    }
+                });
+            });
+        }
+
+        function deletePhoto(id) {
+            galleryPhotos = galleryPhotos.filter(function(p) { return p.id !== id; });
+            saveData();
+            renderAdminGallery();
+        }
+
+        function clearAllPhotos() {
+            if (!confirm('Delete all ' + galleryPhotos.length + ' photos? This cannot be undone.')) return;
+            galleryPhotos = [];
+            saveData();
+            renderAdminGallery();
+        }
+
+        function updatePhotoCaption(id, caption) {
+            var photo = galleryPhotos.find(function(p) { return p.id === id; });
+            if (photo) { photo.caption = caption; }
+        }
+
+        function saveCaption(id) {
+            saveData();
+            showSaveConfirmation();
+        }
+
+        function renderAdminGallery() {
+            var grid = document.getElementById('adminGalleryGrid');
+            var count = document.getElementById('photoCount');
+            if (!grid) return;
+            count.textContent = galleryPhotos.length
+                ? galleryPhotos.length + ' photo' + (galleryPhotos.length !== 1 ? 's' : '') + ' in gallery'
+                : 'No photos uploaded yet';
+            grid.innerHTML = '';
+            if (!galleryPhotos.length) return;
+            galleryPhotos.forEach(function(p) {
+                var card = document.createElement('div');
+                card.style.cssText = 'position:relative;border-radius:8px;overflow:hidden;background:#0f2744;';
+                var img = document.createElement('img');
+                img.src = p.dataUrl;
+                img.style.cssText = 'width:100%;height:130px;object-fit:cover;display:block;';
+                card.appendChild(img);
+                var info = document.createElement('div');
+                info.style.cssText = 'padding:8px;';
+                var input = document.createElement('input');
+                input.type = 'text';
+                input.value = p.caption || '';
+                input.placeholder = 'Add caption...';
+                input.style.cssText = 'width:100%;background:#1e3a5f;border:1px solid #0891b2;color:white;padding:4px 6px;border-radius:4px;font-size:12px;box-sizing:border-box;';
+                input.addEventListener('change', (function(pid){ return function(){ updatePhotoCaption(pid, this.value); }; })(p.id));
+                input.addEventListener('blur',   (function(pid){ return function(){ saveCaption(pid); }; })(p.id));
+                info.appendChild(input);
+                var ts = document.createElement('p');
+                ts.textContent = p.timestamp || '';
+                ts.style.cssText = 'color:#64748b;font-size:11px;margin:4px 0 0 0;';
+                info.appendChild(ts);
+                card.appendChild(info);
+                var del = document.createElement('button');
+                del.textContent = String.fromCharCode(215);
+                del.style.cssText = 'position:absolute;top:6px;right:6px;background:rgba(220,38,38,0.85);color:white;border:none;border-radius:50%;width:26px;height:26px;cursor:pointer;font-size:16px;line-height:26px;text-align:center;padding:0;';
+                del.addEventListener('click', (function(pid){ return function(){ deletePhoto(pid); }; })(p.id));
+                card.appendChild(del);
+                grid.appendChild(card);
+            });
+        }
+
+
+        // ── Roster Import ────────────────────────────────────────────────────
+
+        // Extract emails + best-guess names from raw text
+        function parseRosterText(text) {
+            var EMAIL_RE = /[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}/g;
+            var lines = text.split(/[\r\n]+/).map(function(l){ return l.trim(); }).filter(Boolean);
+            var entries = [];
+            var seenEmails = {};
+
+            lines.forEach(function(line) {
+                var emails = line.match(EMAIL_RE) || [];
+                // Remove email(s) from line to get possible name text
+                var nameText = line.replace(EMAIL_RE, '').replace(/[#\d]+/g, '').replace(/\s{2,}/g, ' ').trim();
+                // Clean common separators
+                nameText = nameText.replace(/[,;|]+/g, ' ').replace(/\s{2,}/g, ' ').trim();
+
+                if (emails.length) {
+                    emails.forEach(function(email) {
+                        if (seenEmails[email]) return;
+                        seenEmails[email] = true;
+                        entries.push({ name: nameText || '', email: email });
+                    });
+                } else if (nameText) {
+                    // Line has no email — just a name, include it
+                    entries.push({ name: nameText, email: '' });
+                }
+            });
+            return entries;
+        }
+
+        function parseAndPreviewText(text) {
+            if (!text.trim()) { alert('Please paste some text first.'); return; }
+            var entries = parseRosterText(text);
+            showImportPreview(entries);
+        }
+
+        function handleRosterPdf(event) {
+            var file = event.target.files[0];
+            if (!file) return;
+            var status = document.getElementById('pdfStatus');
+            status.textContent = 'Reading PDF...';
+
+            // Configure pdf.js worker
+            if (typeof pdfjsLib !== 'undefined') {
+                pdfjsLib.GlobalWorkerOptions.workerSrc =
+                    'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+            } else {
+                status.textContent = '⚠️ PDF library not loaded. Try the paste option instead.';
+                return;
+            }
+
+            var reader = new FileReader();
+            reader.onload = function(e) {
+                var typedArray = new Uint8Array(e.target.result);
+                pdfjsLib.getDocument({ data: typedArray }).promise.then(function(pdf) {
+                    var allText = '';
+                    var pagePromises = [];
+                    for (var i = 1; i <= pdf.numPages; i++) {
+                        pagePromises.push(pdf.getPage(i).then(function(page) {
+                            return page.getTextContent().then(function(tc) {
+                                return tc.items.map(function(item){ return item.str; }).join(' ');
+                            });
+                        }));
+                    }
+                    Promise.all(pagePromises).then(function(pages) {
+                        allText = pages.join('\n');
+                        status.textContent = 'PDF read — ' + pdf.numPages + ' page(s) processed.';
+                        var entries = parseRosterText(allText);
+                        showImportPreview(entries);
+                        event.target.value = '';
+                    });
+                }).catch(function(err) {
+                    status.textContent = '⚠️ Could not read PDF: ' + err.message;
+                });
+            };
+            reader.readAsArrayBuffer(file);
+        }
+
+        function showImportPreview(entries) {
+            if (!entries.length) {
+                alert('No names or emails found. Try the paste option and check your formatting.');
+                return;
+            }
+            var container = document.getElementById('importPreviewContainer');
+            var list = document.getElementById('importPreviewList');
+            var count = document.getElementById('importFoundCount');
+            count.textContent = entries.length;
+            container.style.display = 'block';
+
+            list.innerHTML = entries.map(function(e, i) {
+                var alreadyExists = players.some(function(p){
+                    return p.email && p.email === e.email;
+                });
+                var warning = alreadyExists ? ' <span style="color:#f59e0b;font-size:12px;">⚠ already in roster</span>' : '';
+                return '<div style="display:flex;align-items:center;gap:10px;padding:10px;background:rgba(15,39,68,0.7);border-radius:6px;margin-bottom:6px;">' +
+                    '<input type="checkbox" id="imp_' + i + '" ' + (alreadyExists ? '' : 'checked') + ' style="width:18px;height:18px;flex-shrink:0;">' +
+                    '<div style="flex:1;min-width:0;">' +
+                        '<input type="text" value="' + (e.name || '') + '" id="imp_name_' + i + '" placeholder="Name (optional)" ' +
+                            'style="background:#0f2744;color:white;border:1px solid #334155;border-radius:4px;padding:5px 8px;width:100%;margin-bottom:4px;font-size:13px;">' +
+                        '<input type="email" value="' + (e.email || '') + '" id="imp_email_' + i + '" placeholder="Email" ' +
+                            'style="background:#0f2744;color:white;border:1px solid #334155;border-radius:4px;padding:5px 8px;width:100%;font-size:13px;">' +
+                    '</div>' +
+                    warning +
+                    '</div>';
+            }).join('');
+
+            window._importEntries = entries;
+            // Scroll into view
+            container.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+
+        function importPreviewedPlayers() {
+            var entries = window._importEntries || [];
+            var added = 0;
+            entries.forEach(function(e, i) {
+                var cb = document.getElementById('imp_' + i);
+                if (!cb || !cb.checked) return;
+                var name = (document.getElementById('imp_name_' + i).value || '').trim();
+                var email = (document.getElementById('imp_email_' + i).value || '').trim();
+                if (!name && !email) return;
+                players.push({
+                    id: Date.now() + i,
+                    name: name || email.split('@')[0],
+                    email: email,
+                    age: 'N/A',
+                    number: 'N/A',
+                    skill: 'N/A',
+                    teamId: null
+                });
+                added++;
+            });
+            saveData();
+            renderPlayers();
+            updatePlayerStatsDropdown();
+            updateStatCards();
+            clearImportPreview();
+            document.getElementById('pdfStatus').textContent = '';
+            document.getElementById('rosterPasteBox').value = '';
+            alert('✅ ' + added + ' player' + (added !== 1 ? 's' : '') + ' imported successfully!');
+        }
+
+        function clearImportPreview() {
+            document.getElementById('importPreviewContainer').style.display = 'none';
+            document.getElementById('importPreviewList').innerHTML = '';
+            window._importEntries = [];
+        }
+
+
+        // ── Player Signups ───────────────────────────────────────────────────
+        var _signupsData = {};
+
+
+        function toggleSignupForm() {
+            signupFormVisible = !signupFormVisible;
+            updateToggleBanner();
+            // saveData() does a full PUT — public page gets a clean 'put' stream event
+            // which is far more reliable than patch event handling
+            saveData();
+        }
+
+        function updateToggleBanner() {
+            var banner = document.getElementById('signupToggleBanner');
+            var title  = document.getElementById('signupToggleTitle');
+            var desc   = document.getElementById('signupToggleDesc');
+            var btn    = document.getElementById('signupToggleBtn');
+            if (!banner) return;
+            if (signupFormVisible) {
+                banner.style.cssText = 'border-radius:10px;padding:18px 22px;margin-bottom:22px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:14px;background:rgba(34,197,94,0.15);border:2px solid #22c55e;';
+                title.style.color  = '#22c55e';
+                title.textContent  = '✅ Signup Form — VISIBLE on public page';
+                desc.style.color   = '#86efac';
+                desc.textContent   = 'Players can currently see and fill in the sign-up form.';
+                btn.style.background = '#dc2626';
+                btn.style.color      = 'white';
+                btn.textContent      = '🙈 Hide Form from Public';
+            } else {
+                banner.style.cssText = 'border-radius:10px;padding:18px 22px;margin-bottom:22px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:14px;background:rgba(220,38,38,0.15);border:2px solid #dc2626;';
+                title.style.color  = '#dc2626';
+                title.textContent  = '🙈 Signup Form — HIDDEN from public page';
+                desc.style.color   = '#fca5a5';
+                desc.textContent   = 'The sign-up form is not visible to players right now.';
+                btn.style.background = '#22c55e';
+                btn.style.color      = 'white';
+                btn.textContent      = '👁️ Show Form to Public';
+            }
+        }
+
+        function loadSignups() {
+            var badge = document.getElementById('signupBadge');
+            if (badge) badge.textContent = 'Loading...';
+
+            fetch(FIREBASE_SIGNUPS_URL)
+                .then(function(res) { return res.json(); })
+                .then(function(data) {
+                    _signupsData = data || {};
+                    renderSignupsTable(_signupsData);
+                })
+                .catch(function() {
+                    if (badge) badge.textContent = 'Error loading';
+                });
+        }
+
+        function renderSignupsTable(data) {
+            var tbody  = document.getElementById('signupsTableBody');
+            var empty  = document.getElementById('signupsEmpty');
+            var table  = document.getElementById('signupsTable');
+            var badge  = document.getElementById('signupBadge');
+
+            if (!tbody) return;
+            tbody.innerHTML = '';
+
+            var keys = Object.keys(data || {});
+            if (badge) badge.textContent = keys.length + ' sign-up' + (keys.length !== 1 ? 's' : '');
+
+            if (!keys.length) {
+                if (empty) empty.style.display = 'block';
+                if (table) table.style.display = 'none';
+                return;
+            }
+            if (empty) empty.style.display = 'none';
+            if (table) table.style.display = 'table';
+
+            var posColors = { 'Forward':'#0891b2', 'Defence':'#dc2626', 'Goalie':'#7c3aed' };
+
+            keys.forEach(function(key, i) {
+                var s = data[key];
+                var alreadyIn = players.some(function(p){
+                    return p.name && p.name.toLowerCase() === (s.name||'').toLowerCase();
+                });
+
+                var row = document.createElement('tr');
+                row.style.cssText = (i%2===0 ? 'background:rgba(15,39,68,0.5);' : 'background:rgba(15,39,68,0.3);') + 'border-bottom:1px solid #1e3a5f;';
+
+                // Name
+                var tdName = document.createElement('td');
+                tdName.style.cssText = 'padding:10px 14px;font-weight:bold;color:#fde047;';
+                tdName.textContent = s.name || '—';
+                row.appendChild(tdName);
+
+                // Phone
+                var tdPhone = document.createElement('td');
+                tdPhone.style.cssText = 'padding:10px 14px;color:#fef3c7;';
+                tdPhone.textContent = s.phone || '—';
+                row.appendChild(tdPhone);
+
+                // Age
+                var tdAge = document.createElement('td');
+                tdAge.style.cssText = 'padding:10px 14px;text-align:center;color:#fef3c7;';
+                tdAge.textContent = s.age || '—';
+                row.appendChild(tdAge);
+
+                // Skill
+                var tdSkill = document.createElement('td');
+                tdSkill.style.cssText = 'padding:10px 14px;text-align:center;color:#fde047;font-weight:bold;';
+                tdSkill.textContent = s.skill ? '⭐ ' + s.skill : '—';
+                row.appendChild(tdSkill);
+
+                // Position
+                var tdPos = document.createElement('td');
+                tdPos.style.cssText = 'padding:10px 14px;text-align:center;';
+                if (s.position && s.position !== 'Not specified') {
+                    var badge2 = document.createElement('span');
+                    badge2.style.cssText = 'padding:2px 9px;border-radius:12px;font-size:12px;font-weight:bold;color:white;background:' + (posColors[s.position]||'#64748b') + ';';
+                    badge2.textContent = s.position;
+                    tdPos.appendChild(badge2);
+                } else {
+                    tdPos.textContent = '—';
+                    tdPos.style.color = '#64748b';
+                }
+                row.appendChild(tdPos);
+
+                // Email
+                var tdEmail = document.createElement('td');
+                tdEmail.style.cssText = 'padding:10px 14px;color:#94a3b8;font-size:13px;';
+                tdEmail.textContent = s.email || '—';
+                row.appendChild(tdEmail);
+
+                // Timestamp
+                var tdTime = document.createElement('td');
+                tdTime.style.cssText = 'padding:10px 14px;color:#64748b;font-size:12px;';
+                tdTime.textContent = s.timestamp || '—';
+                row.appendChild(tdTime);
+
+                // Status
+                var tdStatus = document.createElement('td');
+                tdStatus.style.cssText = 'padding:10px 14px;text-align:center;';
+                if (alreadyIn) {
+                    tdStatus.innerHTML = '<span style="color:#22c55e;font-size:12px;font-weight:bold;">✅ In Roster</span>';
+                } else {
+                    tdStatus.innerHTML = '<span style="color:#f59e0b;font-size:12px;font-weight:bold;">⏳ Pending</span>';
+                }
+                row.appendChild(tdStatus);
+
+                // Action
+                var tdAction = document.createElement('td');
+                tdAction.style.cssText = 'padding:10px 14px;text-align:center;';
+                if (!alreadyIn) {
+                    var importBtn = document.createElement('button');
+                    importBtn.textContent = '➕ Add to Roster';
+                    importBtn.style.cssText = 'background:#22c55e;color:white;border:none;padding:6px 12px;border-radius:5px;font-size:12px;font-weight:bold;cursor:pointer;';
+                    importBtn.addEventListener('click', (function(signup, k){ return function(){ importSingleSignup(signup, k); }; })(s, key));
+                    tdAction.appendChild(importBtn);
+                } else {
+                    var removeBtn = document.createElement('button');
+                    removeBtn.textContent = '🗑️ Remove';
+                    removeBtn.style.cssText = 'background:#475569;color:white;border:none;padding:6px 12px;border-radius:5px;font-size:12px;cursor:pointer;';
+                    removeBtn.addEventListener('click', (function(k){ return function(){ removeSignup(k); }; })(key));
+                    tdAction.appendChild(removeBtn);
+                }
+                row.appendChild(tdAction);
+
+                tbody.appendChild(row);
+            });
+        }
+
+        function importSingleSignup(s, firebaseKey) {
+            players.push({
+                id: Date.now(),
+                name: s.name || 'Unknown',
+                email: s.email || '',
+                phone: s.phone || '',
+                age: s.age || 'N/A',
+                number: 'N/A',
+                position: s.position !== 'Not specified' ? s.position : 'N/A',
+                skill: s.skill || 'N/A',
+                teamId: null
+            });
+            saveData();
+            renderPlayers();
+            updatePlayerStatsDropdown();
+            updateStatCards();
+            // Refresh signups display
+            renderSignupsTable(_signupsData);
+            showSaveConfirmation();
+        }
+
+        function importAllSignups() {
+            var keys = Object.keys(_signupsData);
+            if (!keys.length) { alert('No sign-ups to import.'); return; }
+            var added = 0;
+            keys.forEach(function(key) {
+                var s = _signupsData[key];
+                var alreadyIn = players.some(function(p){
+                    return p.name && p.name.toLowerCase() === (s.name||'').toLowerCase();
+                });
+                if (!alreadyIn) {
+                    players.push({
+                        id: Date.now() + added,
+                        name: s.name || 'Unknown',
+                        email: s.email || '',
+                        phone: s.phone || '',
+                        age: s.age || 'N/A',
+                        number: 'N/A',
+                        position: s.position !== 'Not specified' ? s.position : 'N/A',
+                        skill: s.skill || 'N/A',
+                        teamId: null
+                    });
+                    added++;
+                }
+            });
+            saveData();
+            renderPlayers();
+            updatePlayerStatsDropdown();
+            updateStatCards();
+            renderSignupsTable(_signupsData);
+            alert('✅ ' + added + ' player' + (added !== 1 ? 's' : '') + ' added to roster!');
+        }
+
+        function removeSignup(firebaseKey) {
+            if (!confirm('Remove this sign-up entry?')) return;
+            fetch(FIREBASE_SIGNUPS_URL.replace('.json', '/' + firebaseKey + '.json'), {
+                method: 'DELETE'
+            }).then(function() {
+                delete _signupsData[firebaseKey];
+                renderSignupsTable(_signupsData);
+            }).catch(function() { alert('Could not remove. Try again.'); });
+        }
+
+        function clearSignups() {
+            if (!confirm('Delete ALL sign-up entries? This cannot be undone.')) return;
+            fetch(FIREBASE_SIGNUPS_URL, {
+                method: 'PUT',
+                headers: { 'Content-Type': 'application/json' },
+                body: 'null'
+            }).then(function() {
+                _signupsData = {};
+                renderSignupsTable(_signupsData);
+            }).catch(function() { alert('Could not clear signups.'); });
+        }
+
+        function exportSignupsCSV() {
+            var keys = Object.keys(_signupsData);
+            if (!keys.length) { alert('No sign-ups to export.'); return; }
+            var csv = 'Name,Phone,Age,Skill,Position,Email,Signed Up\n';
+            keys.forEach(function(key) {
+                var s = _signupsData[key];
+                csv += '"' + (s.name||'') + '","' + (s.phone||'') + '","' + (s.age||'') + '","' +
+                       (s.skill||'') + '","' + (s.position||'') + '","' + (s.email||'') + '","' +
+                       (s.timestamp||'') + '"\n';
+            });
+            var a = document.createElement('a');
+            a.href = URL.createObjectURL(new Blob([csv], {type:'text/csv'}));
+            a.download = 'tournament_signups.csv';
+            a.click();
+        }
+
         // Initialize
         function initializeApp() {
             document.getElementById('numTeams').value = '2';
@@ -2675,6 +3490,7 @@
             displayTournamentLogo();
             renderPublicView();
             renderAnnouncements();
+            renderAdminGallery();
             updatePlayerStatsDropdown();
             updateStatCards();
             
@@ -2693,7 +3509,11 @@
             collapseAllPanels();
         });
 
-        initializeApp();
+        // Load from Firebase first, then initialize the app
+        loadData().then(function() {
+            initializeApp();
+            updateToggleBanner();
+        });
     </script>
 </body>
 </html>

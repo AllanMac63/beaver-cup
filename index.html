@@ -1,0 +1,1209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tournament Information</title>
+    
+    <!-- Mobile App Icons -->
+    <link rel="icon" type="image/png" href="data:image/png;base64,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">
+    
+    <!-- Apple Touch Icon (iOS) -->
+    <link rel="apple-touch-icon" sizes="180x180" href="data:image/png;base64,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">
+    
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="data:application/json;base64,eyJuYW1lIjogIkhvY2tleSBUb3VybmFtZW50IiwgInNob3J0X25hbWUiOiAiVG91cm5hbWVudCIsICJkZXNjcmlwdGlvbiI6ICJMaXZlIHRvdXJuYW1lbnQgc2NoZWR1bGUsIHN0YW5kaW5ncyBhbmQgc3RhdHMiLCAic3RhcnRfdXJsIjogIi4iLCAiZGlzcGxheSI6ICJzdGFuZGFsb25lIiwgImJhY2tncm91bmRfY29sb3IiOiAiIzAwMWYzZiIsICJ0aGVtZV9jb2xvciI6ICIjMDAxZjNmIiwgImljb25zIjogW3sic3JjIjogImRhdGE6aW1hZ2UvcG5nO2Jhc2U2NCxpVkJPUncwS0dnb0FBQUFOU1VoRVVnQUFBTUFBQUFEQUNBWUFBQUJTM0d3SEFBQUdJRWxFUVZSNDJ1M2R2VzRiUnhTRzRkMjFrREtXa0tTVzA3Z3lKT1FLVkNWRmJpVzFyc0pwZlN0dVVxa1hZQ1J3NWNaUmJRU21VaG93bUNLT3pLeDNTZTcvenB6bkJReFFFcm5tRHI5M3pweFpVaXFMdFhGK3RTMlFMM2MzNVpxZVRpbnNpQ3hGS2ZTSUxFTXArSWdzUWluNGlDeENLZmlJTEVJcCtJZ3NRaVg4U0lxUk0xWUtQaUpYZzByNEVia2FWTUtQeUJKVXdvL0lFbFRDajhnU1ZNS1B5QkpVd28vSUVsVENqOGdTVk1LUHlCSlV3by9JRWxSR0NaR3B6UDZJWEFVcTRVZGtDU3lCWUFsazlrZlVLcUFDSURTbDJYOGVuajk5M2VuKzEyK2VHYlFwcUgyR2dBQXJDVHdoMWlDQThLOHE5R1NZWGdJQ0pCUjhJa3dwZ1BBbkUzd2lqQ2NCQVJJT1BoRUlJUGhFR0NSQUpmeDVoVCsxNTdvWW56THZRbGltZ1NMQmNSQWc0eUNSZ0FEaEEwUUNBb1FQRGduYUtUWEFjUUpqZDBnRkNEMWJxZ1FFQ0I4UUVoQWdmREJJUUlEd2dTQUJBUUFDUko0SlZZSGdBZ2lBTWJBRUFnSE1mS29BQVFBQ21QRlVBUUlBQkREVHFRSUVBQWdBRUVDSk4wWUVBQWdBRUVCcE4xWUVBQWdBcE15SklSaVA2OS8rK25JNThlTTNxenNtVklESnc3L2Rib3Z0ZHRzWTRDV1BpWUFDVE4zVU5RVjE5M2Fmd0U1eFRJMndDakRMc21mSS9hWTZKZ2dBRUdBT3lySnN2TDIyWThJdTBDd1NyUG1ZS2dDR05ZdEhia2wyMmJxYzRwZ2d3R0lTOUFucUZNY0VBV2FYWUVoUXB6Z205QUNMTDRlV1BpWlVBRUFGV0lxMkMxaG1ld0tFQzMzYmZjaGdDUlFxL0dNOEJnUm9EdE9DZnh4dXpIZURSaGt6QWdBRUFBZ0FFQ0JsZG5kei92dFF5KzZIVzI1dmJ4Kyt0L3V2L2xnUVlCQi92dis0cUFTN29hOUxVUDlaMi9jaWpCVUJBbFVFRUdBV2Z2bnVkekprTW1ZRVVOcU5FUUhNWk1hT0FBQUJ1czVnbGtIZGxqKzVWd0VWWUNaKy9lbmIxcS9yUDJ2N0hzYW5MTTZ2dHJtZTNMN1o2OG5aSTYvK2taWHh4YnRMRlVBRHB4a21RSkFaejFob2dnRUM1RjZ5VllIanh5RFhaVkFsQUIrZHV3b0FFTUJNNkp3SkVHWDlIemtRZmM4MXh6NUFCUWdtZ1puLy8vakZXQTBCeWZVcWNUMzg5Zk9NS0ljS0VHU1dOUE1USUd4Z2hEK0lBR00zYVRrRVo5ODVIRm9TUldpRVZZQ01KVER6RXlCc2tJU2ZBR0VESmZ3RW1DeFlhdzVYbitmWHB3L0lDZGNCQnN5d2F3bUxHWjhBSVVVUWZBS0VGRUh3Q2JENjVuTnNHWVNlQU1uSzBFZUlPUU5mZi8vVGs3TkhZWVFqZ1BWNmFHeURnZ0FBQVFBQ1FJL1NyMmtuQUVDQVpjbjVsN2dhWXdJQUJJQStnQUFBQVFBQ2FJU05MUUVBQWtBalRBQ0FBUG9BWTZvQ0FBUUFvZ3BnR2FRUlZnRXdLOCtmdms3dU9mdE1NRUlFdlkyeU9ML2E1dnhpNWZyM2JhZW03N0xuK3MwelN5Q0FBSnBoeXlNQ0FBUlFCUklrdGJVOEFZQWVoTmtHZmZIdTBvN1FSQlV6NVdweEV1MkZKY0d3OE9lMk5ISWhES0Y3Z2V3dmhEV2hDdGdzQ04wRTJ4VXlKcUVGQU1JTG9Bb1lpL0FWZ0FUR29CS0FTK2RPQUJJNFp3S1F3TGtTZ0FUT2tRQWtjRzRFaU12Yit6TExjL3I1cXorOHVEVkN2aFZpSC9XUWZQOTRtNTNNTHo5Y2VLRlZnUHlyUVk2VmpBQXp6djRwQjJuZmM3WVUrb3kzUXgvQlpyTXBYbTMrdmYzRCtlTlZQOWRYZC9jUHQwOVBUNzE0RVh1QXM3L2JaN2ozWDErTU1pdXVyVGZvVTZYMEFobFZnSDJoYjd0Zm13eGRBcmUwQ05iNVEzdUF1NXN5U3ZqSGVsdzlnRXVFY0tuL055dnVic3FUcU9IZmZmeWhTckRaYkE2dnZYZnVNbFdmc0x1K1B3WTlnQ1o0RkxvRzZlMzk4SjZoYVhZWGFBSTBOclZEcXNDUVBzQmFQWWNlSUFQNmhuaXU4R085Zko2V010b083Yk1OV2hTeExoQ0Yzd0w5dFBtVFpROHc5c3grVEJPY1ErK2lCd2pPeXc4WGpWVWd0eUM1QU5iVUEyUndQUURvc3Z6SnBnazJPenEvNFJWQUZjZytKTUwvWmNaVkFJU21lY2IzS2JFSGN0Z2FOZk8zcjNCVWdNekRJL3hkZWdDOVFGWWhFdjdEbVZZQk1nMlQ4QS9wQWZRQ3lmWUZndDl0UlhONHFVT0NKRVFRL083aEx3cHZoUmd0ZEV2SUlQUlRMNEZVZ2RWVkJxRWZiL1kvWGdBU0xDS0ZzRThiL200Q2tBQ1poYjhvdW02RHVqNkFqTUxmWFFBU0lLUHc5eE9BQk1nay9QMEZJQUV5Q1A4d0FVaUF4TU0vWEFBU0lPSHdGMFhYYmRCRDJDWkZJc0VmcndLb0JrZzAvT05YQU5VQWlRUi9lZ0dJZ0FSV0ZmTXRXWWlBRlM2bjUxK3pFd0VyNmlPWGJWckpnQVZDdng0QlNDSHNDL01QYTRyN3lNY1dyZVVBQUFBQVNVVk9SSzVDWUlJPSIsICJzaXplcyI6ICIxOTJ4MTkyIiwgInR5cGUiOiAiaW1hZ2UvcG5nIn0sIHsic3JjIjogImRhdGE6aW1hZ2UvcG5nO2Jhc2U2NCxpVkJPUncwS0dnb0FBQUFOU1VoRVVnQUFBZ0FBQUFJQUNBWUFBQUQwZU5UNkFBQVJVa2xFUVZSNDJ1M2R1NDRVMXhZRzRLcGlSTWhGTnZIZ2hBaUIvQVFUMlFHdlFzeFQ0SlJYY2VKb2NpUTBpSWdFSmtiV2dFTkxxQjJZc2RwRDM3dXE5dDVyZlovazRCeWJTMWZ2cXYvZnE2cDcrbzQ2blo0dEhBUWdoTXZ6M2tHb2p6ZEZ3QU1vQ0FvQXdoNUFLVkFBRVBnQUNvRUNnTUFIVUFnVUFLRVBnREtnQUFoOUFKUUJCVURvQTZBTUtBQ0NId0JGUUFFUStnQW9Bd3FBNEFkQUVWQUFCRDhBaW9BQ0lQZ0JVQVFVQU1FUGdDS2dBQWgrQUJTQmZRM0NId0R5WlVmdnpRT0FmTk9BZUM5SzhBT2dDR3dWNnhhQThBZEF4aVNhQUFoK0FFd0RrazBBaEQ4QXNpZFpBUkQrQU1pZ2cvUU9PZ0FjcWNGYkF1MU5BSVEvQUxJcFdRRVEvZ0RJcUZIMERpb0FqS3lCV3dMMVR3Q0VQd0NtQWNrS2dQQUhRQWxJVmdDRVB3QktRTElDSVB3QlVBS1NGUURoRDRBU2tLd0FDSDhBbElCa0JVRDRBNkFFSkNzQXdoOEFKU0JaQVJEK0FDZ0J5UXFBOEFkQUNVaFdBSVEvQUVwQXNTd2NzcjFnQUZBQ1NoUUE0UThBeGJOeGlQNENBVUFKS0ZrQWhEOEFWSk9WUTdRWEJBQktRRTBUQUFDZ0d0TVhBTHQvQUtndU80ZldYd0FBS0FFMUZRRGhEd0RWWnFsbkFBQWdvV2tLZ04wL0FGU2RxVU1yZjFFQVVBSnFMUURDSHdDYUtBR2VBUUNBaE1ZckFIYi9BTkRNRkdDbzdTOEVBRXlmdVc0QkFFQkN4eGNBdTM4QWFHNEtZQUlBQUNZQWR2OEFrR0VLTUpUNmd3R0FjaVhBTFFBQVNPaXdBbUQzRHdCTlR3Rk1BQURBQk1EdUh3QXlUQUZNQUFEQUJNRHVId0F5VEFGTUFBREFCTUR1SHdBeVRBRk9IQzJJNmVXamQ2UDlYaS9lUDNaQUlaamU3aCtFdkhJQXdWeWViODEzQlFDRXZWSUFDb0FDQUFKZklRQUZRUGlEMEZjR0lHUUpVQUJBNkNzRG9BQUlmeEQ2eWdCa0tBRUtBQWgrUlFBVUFBVUFCTDhpQUxrTGdQQUhvYThNUU5nU29BQ0E0RmNFUUFGUUFFRHdLd0tRb1FBTXdoK0V2K01OZ2EzSjlGNEJBRUZrR2dENXBnQUtBQWgrUlFBU0ZvQkIrSVB3OTc1QWNDdXl2VmNBUU1DWUJrQytLY0RnaUlEdzkzNUJQaVlBSUVoTUF5RDlCRUQ0Zy9EM1BrSk1OekxlTFFBUUd0NVBTS2czQVFCQmtZbGJBcVMyZEJ2QUJBQ0V2L2NaRWhycy9rRW9lTDhoaWFXc053RkFHQWdEN3p1a25nQ0FFTUQ3RHdvQXVQaGpIWUFDQUM3NldBOFFyZ0I0QUJBWGU2d0xCNEVjdm1XK0NRQXU4bUI5a0hZQ0FDN3VZSjJnQUlDTE90WUxLQURnWW81MUF3b0F1SWhqL1lBQ0FDN2VXRWVnQUlDTE50WVQxSy8zSFFDNFdNTnUvQ2hoVEFCQStHTjlnUUlBTHM1WVo2QUFBQUFLQU5pVlliMkJBZ0F1eGxoM29BQ0FpekRXSHlnQUFJQUNBSFpmV0llZ0FJQ0xMdFlqS0FBQWdBS0EzUlpZbDZBQTRDSUwxaWNvQUFDQUFvRGRGVmluS0FEZ29ncldLd29BQUtBQWdOMFVXTGNvQUFDQUFnQjJVV0Q5b2dBQUFBb0EyRDFoSFlNQ0FBQW9BR0RYaFBVTUNnQUFvQUJndHdUV05TZ0FBSUFDZ0YwU1dOK2dBQUFBQ2dCMlIyQ2Rnd0lBQUNnQUFLQUFRSG5Hb2xqdm9BQUFBQW9BZGtOZzNZTUNBQUFvQUFDQUFrQmpqRUd4L2tFQkFBQVVBQUJBQVNBYzQwOXdIcUFBQUFBS0FBQ2dBQUFBQ2dEdGM5OFRuQThvQUFDQUFnQUFLQUNFWTl3Snpnc1VBQUJBQVFBQUZBQUFRQUVBQUJRQUd1UkJKM0IrVUljVGh3REtldkhIbitzRDRaY2Z2RDVBQVlBTW9iL3V2MnNwTEtPL1BvakFMUUNvTkJ6SCtuVmVINkFBUUNQaHVGZ3N2dnVuaFpDTS92cEFBWUFEWkgvQWFaOXczUFQvMXhxUzBWK2Y4d1FGQUpnOUhHc1B5ZWl2RHhRQW9GZzQxaHFTMFY4ZktBREFaT0ZZNisrZi9mV0JBZ0FBS0FBQWdBSUFyRERYK0xyVW1EejY2d01GQUpoRjMvZWovbmRlSDZBQVVKelBObzhUa3EySFkvVFg1M3hCQVFCR0Q4a280Umo5OVVFci9EQWdhSENuN1BVQkpnQUFnQUlBQUNnQVVNeGNQOTkrcmo4bjIrc0RCUUFBVUFBQUFBVUEyR0RxOFhYcDhYajAxd2NLQUZCZGlOVVNqdEZmSHlnQVFEVmhWbHM0Um45OW9BQUF4VU90MW5DTS92cEFBUUNLaFZ2dDRSajk5WUVDQU13ZWNxMkVZL1RYQjFINFdRQlFPQ1EzL2J6N1ZrTXgrdXNEQlFBb3RtUDIrb0JqdUFVQUFBb0FBS0FBQUFBS0FBQVFnNGNBSVlsTlQrUGY1TUU5VUFDQUpLRy83dGNwQTZBQUFJRkRYeG1BWER3RHdEeWg5UDZ4ZzlCZytNLzkrK044d1FRQXFEU1lyLzhzMHdBd0FRQ1NoTDlwQUNnQVFPTHdWd0pBQVFDU2g2OFNBQW9Ba0RSMGxRQlFBQUFBQlFBQVVBQkl6V2ViUnpxT2xZN2IzUVp3bnFBQUFBQUtBQUNnQUFBQUNnQUFvQUFRbkFlY2psZnJkL0Q3MlFET0R4UUFBRUFCQUFBVUFPQm95K1AyeFdLeDF6L0xYcjkrL2IvL2ZlanZaZndQQ2dBd1l3bTRHZWk3V1BkckR2MjloRDhvQUxBVER6cUI4d0lGQUFCUUFNamcrWU1MQndHY0Z5Z0FaTHpJZmJ6NjZtREFOOWZuZ3hLQUFnQUFLQURFMnYwRHpoUEtPM0VJSUovbGorNzVHQitZQU1Dc3V4clBBY0RxODhBVUFBVUFBRkFBaUxQN0I1dzNLQUFrNWpZQTFqOG9BTmpGQU00ZkZBQUFRQUVnN083RkdKU01kbDMzcGdBb0FBQ0FBa0RPM1JCWTc2QUFVREZqUzNBK29RQUFBQW9BZGl1ckdZdVN3YUhyM0JRQUJRRDR6MisvL2pqYXJ4bno5d0xxMTNlblp3dUhnUm9tQU5jZTNyL2xJR0wzdjhLclQwOGRSRXdBaUJuK2dQTUxCUUM3SkxDdVFRSEE3Z1J3bnFFQVlMY0Uxak1vQUFDQUFzRE1waGhMMmpWaDl6L2YrWVlDQUFBb0FCQnY5d1RXTHlnQWpNQTRFcHgzS0FCZ0Z3WFdMUW9BQUtBQUVNNWNZMGk3S2V6K3k1MS9LQUNRNHFJSzFpa0tBQUNnQUlEZEZWaWZLQUFrVityK280c3N3ci84ZVlnQ0FBQW9BR0FLZ1BVSUNnQzQ2R0lkZ2dKQUhPNDdndk1SQlFEc3ZyRCtRQUVBRjJHc08xQUF3TVVZNncwVUFOcm5maU00TDFFQXdLNE02d3dVQUhCeHh2b0NCUUJjcExHdVFBRUFGMnVzSjFBQWFGQkxEeHE1YUpOdEhYa1FrSDJjT0FSRXYzZy92SC9MZ1dDVzhOOWxyU21tbUFDQUhSeldEU2dBNEdLTzlRSUtBTGlvMDl3NjJlWFh1aVdGQWdCS0FOWUhLQURnSW85MUFRb0FGWXIwRVNNWGU2S3VCeDhGUkFFQUpZQUM2OEJ6QUNnQW9BVGcvUWNGQUlRQTNuZFFBRUFZNFAwR0JRQ0VBdDVuVUFDZ1lEZ0lDTy90SENYRGc0QW9BR0NYaVBjVEZBQVFHbmdmUVFHZ0VsbS9YTVF0QWUrZDh4VUZBT3dpOFg2TituZndIQUFsblRnRXNOOEYzVVZiOElNSkFBZ1p2QzlnQWdDbUFRaCtNQUdBRk9FamdCejdZOHFKRW9rQ0FIYWhPTjR3RzdjQVlPUlFzcU1UL0tBQWdDS0E0QWNGQUxLR2xqSWc5S0UybmdHQW1jSk1vT1U4Vmg0RXhBUUFjSHZBamg4VUFCQjJkbjlDSHhRQUVJSkp5b0RRQndVQVNGSUdzb2YreDZ1dlc5L1BoL2R2S1Vjb0FNRDNvZGxTSVJCa29BQUFFNFpxRGFWQTJJTUNBRlFVdm1PV0F5RVBDZ0FRb0J3QStDSWdnRW9LbWUrSFFBRUFBQlFBQUVBQkFBQVVBSUEyZUE0QUJRQUFVQUNvMzZ0UFR4MEVjTDZpQUFBQUNnQUFPL0VjQUFvQUFLQUFBQUFLQUFDZ0FBQUFDZ0JBd3p3SWlBSUFBQ2dBMU0yWGk0RHpGQVVBQUZBQUFOaUg1d0JRQUFBQUJRQUFVQUFBQUFVQUFGQUFtSjJQR01GNHhuNFEwUG1KQWdBQUtBQUFnQUlBQUFxQVF3QlFqaThFUWdHZ0dSNDBBdWNsQ2dBQW9BQUFBQW9BQUZ0NURnQUZnR2E0M3dqT1J4UUFBRUFCQUFBVUFBQkFBU0FPOXgxaFBJYytDT2c4UkFFQUFCUUFBRUFCQUFBVUFNYmkvaU9NWjkvbkFKeC9LQUFBZ0FJQUFDZ0FUTXdZRXB4M0tBQUFnQUlBd0Q3OFpFQVVBSnBpSEFtZ0FBQUFDZ0FBb0FBUWx0c0FNSTVkbmdONCtlaWRBNFVDQUFBb0FKZ0NBQ013WllqdHhDRUFRTmdyQUFCVTRPUFYxNjJmOTMvNTZGMzM0djFqWVk4Q1FCMWVmWHJhUFg5dzRVQ0FuVDBLQUFBdEJ2NmhVd2JxMTNlblp3dUhnU21ZQXNCeGF2bktYd1VnSnA4Q0FJQ0UzQUlBc1BQSEJBREc0enNCQUJRQUFFQUJ3QlFBQUFVQWdQL3M4c09BNXVTN0JCUUFNQVVBVUFBQUFBVUFUQUhBK1lJQ0FBQW9BR0JYQTg0VEZBQUFOcW50Ky9kOUVrQUJBTHNiY0g2Z0FJQ0xIRGd2VUFBQWdDYjRhWUFVMiswOGYzRGhRRUNsdS8vYW5rRkFBUUJBMktNQVlBb0Fkdi9DSGdVQUlOak8vTmlQM3dsOEZBQk1BU0Q0N2wvWW93Q2dCRUR3OEJmMktBQUF3UWw3cHRCM3AyY0xoNEVhbUFKZzl3L3o4VVZBdUNpQ2RZNENBQUFvQUdCM0JOWTNDZ0M0U0lKMWpRSUFMcFpnUGFNQUFBQUtBTmcxZ1hXTUFnQXVubGkvb0FDQWl5aldMU2dBQUlBQ0FIWlRXSytnQUlDTEt0WXBLQUM0dUlMMUNRb0FMckpnWFlJQ2dJc3RXSStnQU9DaUM5WWhLQUM0K0lMMUJ3b0FBQ2dBWUJjRzFoMEtBTGdZZy9XR0FnQXV5bUNkb1FDQWl6UFdGN1NyNzA3UEZnNERFVDEvY09FZ0lQakJCQUFYYmJDT1FBSEF4UnVzSHhRQWNCRUg2d1lGQUFKNWR2dHQ5K0ZMNzBDd3N3OWYrdTdaN2JjT0JBb0F0QnoreXhkMTJDWDhWNjBmVUFDZ3dmQlhBdGczL0pVQW9qdHhDTWg2a2YvcHJrL0FvaGhpQWdEaGQvOHUraHk2RGt3QlVBQWdTUGdyQWV6Ny9pc0JST01XQUVMQUxRSEJEeVlBa0dmM0x4U0UvNXpyQ3hRQXNEUEUrd3ZGK1dGQTJQMnY0WmFBNEYvbjk3K2ZPS2cwenpNQXNDVTBGQUhCRHlZQUVIajMvL256NTdYLzd1ZlR1dzV5WTk1Y2Zsbjc3KzdkdTJjS2dBbUFRd0M3aDRraTBIYndBOHNGNFBMY0ZBQjIzQlYrK0pZdGJndlU1M3JjUDhidUhzSzdQTzk5Q29EbWxmaG9sbnZMZFlaLzlIVUg0MDRBNEFqMy85ci9JbmgxSjhhOVV3OEo1Z3grVUFBUTlpUCtQaTJYQWtWQThJTUNnTkFmNGM5cHRRd29Bb0lmV3ZMdjJlUWhRQW9GL3lhN0ZJSGE3OE1xQS9GRDM4Y0JhZExsZVc4Q1FIWEJmL1B2NHZhQTRBZkdwd0JRWmZqZi9IdTEvdURnY3BncEEwSWZhakJjandJY0N1SHY3emRmeUYzL2crTUJzL3VXK1NZQVlESmdwdzhKS1FBMHM3dWUrbGJBcHA4Rk1JYzNTMzk4eEs4Y3J1a3JlbjFiSUNnQTBFUll0bGdJZkNjL0tBRFFoSnAzaFI5V1pHbE50d3hXamZUdHNxR1ZBdUNIQXFWMWRlZEpFN2NCb255RjhKU2hPMlU1Y044ZUFsaDY2TjhFQUpLVkE0Q3V1LzRZSUtZQWxlK3U3ZjRCRkFDU2hleW12NWV2WWFVazY0ODRCY0FYQWlrQmQ1NVVVd1JxK3JzQU5POUd4bnNHZ0kyNzdoSVBCd3A5Z09rcEFPd2N4bE9XQWFFUE1LL3ZSLzQrQ3NnZURpa0ZVNFI5N1Q4V21IamMvNmM1VzI4QitENEE3TndCUW9mLzZnSUFTWlgrV1FETXg3Y1VnbzhCRW9SeExOWWI3R2YxQk1CdEFPd0tBV0pZOHhGL0V3RHN5c0E2SXlFRkFBQVVnQ1crRlJDN003QythTnVHTERjQkFBQVRBTEJMQStzS0JjQnRBRnlzd1hxaVRWc3kzQVFBQUV3QVRBR3dhd1ByaU9pN2Z4TUFYTHpCK3NFRUFGekV3YnBCQVZqbU5nQXU1bGd2MElZZE05c0VBQmQxc0U0d0FUQUZ3TVVkNndPaTcvNU5BSENSQitzQ0V3QlRBRnpzc1I0Z3crN2ZCQUFYZmF3RDZ3QVRBRk1BWFB6eC9rT0czYjhKQUFnQjd6c2tkZmh1L3ZSczRmQVJ6YlBiYngwRXdRL2hkLzhtQUNBY3ZMOWdBbUFLQUtZQmdoOHk3UDZQbndCNElCQ2hnZmNSbWd2L3J1dTZFMGNRdG9lSGFZRGdoMmpHMmNHN0ZVQVNpb0RnaHdpNy82N3pFQ0FJRis4UG1BQ1lBb0JwZ09DSCtMdi9jUXVBRW9BeWdOQ0hKc0svNnp3RUNLT0drU0lnK0tFVjQzK016eFFBRkFIQkQxWHYvcWNwQUVvQUtBTkNINm9PLytrS2dCSUF5b0RRaDJyRHYrczhBd0RGd2swWkVQcFEwclJmNVdzS0FLWURBaCtxMi8xUFh3Q1VBRWhmQ29ROTFCZis4eFFBSlFEU2xBSmhEMjJFZjlkNUJnREM3YWluTEFnQ0h1S1k3OGY1bWdJQVFCVzcvNjZiODRjQnpmU0NBRUQ0MTFRQWxBQUFxQ1lqaCtndkVBQ0VmdzBGUUFrQWdPS1pPR1I3d1FDUVBmekxGZ0FsQUFEaFg4eVEvUUFBUU1ic0d4d0lBTWlYZVlNREFnRDVzbTV3WUFBZ1g4WU5EaEFBNU11MndZRUNnSHlaTmpoZ0FKQXZ5d1lIRGdEeVpkamdBQUpBdnV4cUsxeFB6eFpXRlFDQ1A4TUV3RFFBQUJtVnZBQW9BUURJcGxHMEhhWnVDUUFnK0pOTUFFd0RBSkJCeVF1QUVnQ0E3RGxJclBCMFN3QUF3WjlrQW1BYUFJQ01TVDRCTUEwQVFQQW5Md0NLQUFDQ2Y2M0JHd2dBK2JJalZ6aWFCZ0JnMDVpd0FDZ0NBQ1FQL3R3RlFCRUFJR253S3dDS0FJRGdUMHdCVUFRQUJMOENnRElBSVBRVkFCUUJBTUd2QUNnRHlnQ0EwRmNBbEFFQWhMNENvQXdBSVBRVkFJVUFBSUd2QUNnRUFBaDhCUUNsQUVEWUt3QW9DSUNBWjA3L0FMZ1V4M2xpY2ZFS0FBQUFBRWxGVGtTdVFtQ0MiLCAic2l6ZXMiOiAiNTEyeDUxMiIsICJ0eXBlIjogImltYWdlL3BuZyIsICJwdXJwb3NlIjogImFueSBtYXNrYWJsZSJ9XX0=">
+    
+    <!-- iOS Web App Capable -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="🦫 Tournament">
+    
+    <!-- Theme Colors -->
+    <meta name="theme-color" content="#001f3f">
+    <meta name="msapplication-TileColor" content="#8B4513">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #001f3f 0%, #003d7a 100%);
+            padding: 30px;
+            text-align: center;
+            position: relative;
+        }
+        
+        .header h1 {
+            color: #fde047;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        
+        .header .subtitle {
+            color: #fef3c7;
+            font-size: 1.1em;
+            margin-bottom: 15px;
+        }
+        
+        .logo-container {
+            margin: 20px 0;
+        }
+        
+        .logo-container img {
+            max-width: 100%;
+            max-height: 200px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+        
+        .refresh-info {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 10px;
+            border-radius: 8px;
+            display: inline-block;
+            margin-top: 15px;
+        }
+        
+        .refresh-button {
+            background: #22c55e;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            margin-left: 10px;
+        }
+        
+        .refresh-button:hover {
+            background: #16a34a;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        
+        .content {
+            padding: 40px;
+        }
+        
+        .section {
+            margin-bottom: 40px;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .section h2 {
+            color: #001f3f;
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #dc2626;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .info-box {
+            background: #f0f9ff;
+            border-left: 4px solid #0891b2;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+        
+        .info-box p, .info-box li {
+            color: #333;
+            line-height: 1.8;
+            margin: 8px 0;
+        }
+        
+        .info-box li {
+            margin-left: 20px;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        th {
+            background: #001f3f;
+            color: white;
+            padding: 15px;
+            text-align: left;
+            font-weight: bold;
+        }
+        
+        td {
+            padding: 12px 15px;
+            border-bottom: 1px solid #e5e7eb;
+        }
+        
+        tr:nth-child(even) {
+            background: #f9fafb;
+        }
+        
+        tr:hover {
+            background: #f0f9ff;
+        }
+        
+        .rank-1 {
+            background: #fef3c7 !important;
+            font-weight: bold;
+        }
+        
+        .rank-2 {
+            background: #e0e7ff !important;
+        }
+        
+        .rank-3 {
+            background: #fce7f3 !important;
+        }
+        
+        .announcement {
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+            border-left: 4px solid #0891b2;
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .announcement h3 {
+            color: #001f3f;
+            margin-bottom: 8px;
+        }
+        
+        .announcement .date {
+            color: #0891b2;
+            font-size: 0.9em;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        
+        .announcement p {
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .empty-state {
+            color: #9ca3af;
+            text-align: center;
+            padding: 40px;
+            font-style: italic;
+        }
+        
+        .last-updated {
+            text-align: center;
+            color: #6b7280;
+            font-size: 0.9em;
+            padding: 20px;
+            border-top: 1px solid #e5e7eb;
+        }
+        
+        .install-banner {
+            background: linear-gradient(135deg, #8B4513 0%, #A0522D 100%);
+            color: white;
+            padding: 15px 20px;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 15px;
+        }
+        
+        .install-banner-content {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        
+        .install-banner-icon {
+            font-size: 2em;
+        }
+        
+        .install-banner-text {
+            text-align: left;
+        }
+        
+        .install-banner-text strong {
+            display: block;
+            font-size: 1.1em;
+            margin-bottom: 3px;
+        }
+        
+        .install-banner-text small {
+            font-size: 0.85em;
+            opacity: 0.9;
+        }
+        
+        .install-banner-close {
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.2em;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+        
+        .install-banner-close:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+        
+        .hidden {
+            display: none !important;
+        }
+        
+        @media print {
+            body {
+                background: white;
+            }
+            
+            .container {
+                box-shadow: none;
+            }
+            
+            .refresh-info, .refresh-button, .install-banner {
+                display: none;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+            
+            .header h1 {
+                font-size: 1.8em;
+            }
+            
+            .content {
+                padding: 20px;
+            }
+            
+            table {
+                font-size: 0.9em;
+            }
+            
+            th, td {
+                padding: 8px;
+            }
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 12px;
+            margin-top: 15px;
+        }
+
+        .gallery-item {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.15);
+            cursor: pointer;
+            transition: transform 0.2s;
+            background: #f1f5f9;
+        }
+
+        .gallery-item:hover { transform: scale(1.03); }
+
+        .gallery-item img {
+            width: 100%;
+            height: 130px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .gallery-item .caption {
+            font-size: 12px;
+            color: #555;
+            padding: 6px 8px;
+            background: #f8fafc;
+        }
+
+        /* Lightbox */
+        #galleryLightbox {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.92);
+            z-index: 9999;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+        #galleryLightbox.open { display: flex; }
+        #lightboxImg { max-width: 92vw; max-height: 80vh; border-radius: 8px; }
+        #lightboxCaption { color: #e2e8f0; margin-top: 12px; font-size: 15px; }
+        #lightboxClose {
+            position: absolute; top: 18px; right: 22px;
+            color: white; font-size: 36px; cursor: pointer; line-height: 1;
+        }
+        #lightboxPrev, #lightboxNext {
+            position: absolute; top: 50%; transform: translateY(-50%);
+            color: white; font-size: 42px; cursor: pointer;
+            background: rgba(255,255,255,0.1); border-radius: 50%;
+            width: 52px; height: 52px; display: flex;
+            align-items: center; justify-content: center;
+            user-select: none;
+        }
+        #lightboxPrev { left: 12px; }
+        #lightboxNext { right: 12px; }
+
+
+        .signup-section {
+            background: linear-gradient(135deg, #001f3f 0%, #003d7a 100%);
+            border: 2px solid #fde047;
+            border-radius: 12px;
+            padding: 28px;
+            margin-bottom: 24px;
+        }
+        .signup-section h2 {
+            color: #fde047;
+            margin-bottom: 6px;
+            font-size: 1.5em;
+        }
+        .signup-section p.intro {
+            color: #94a3b8;
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+        .signup-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px;
+            margin-bottom: 14px;
+        }
+        @media (max-width: 520px) { .signup-grid { grid-template-columns: 1fr; } }
+        .signup-field label {
+            display: block;
+            color: #fef3c7;
+            font-size: 13px;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        .signup-field input,
+        .signup-field select {
+            width: 100%;
+            padding: 10px 12px;
+            border-radius: 7px;
+            border: 1px solid #334155;
+            background: #0f2744;
+            color: white;
+            font-size: 14px;
+        }
+        .signup-field input:focus,
+        .signup-field select:focus {
+            outline: none;
+            border-color: #fde047;
+        }
+        .signup-btn {
+            background: #fde047;
+            color: #001f3f;
+            border: none;
+            padding: 13px 32px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            width: 100%;
+            transition: background 0.2s;
+        }
+        .signup-btn:hover { background: #fbbf24; }
+        .signup-btn:disabled { background: #94a3b8; cursor: not-allowed; }
+        .signup-success {
+            display: none;
+            background: #14532d;
+            border: 1px solid #22c55e;
+            border-radius: 8px;
+            padding: 16px;
+            text-align: center;
+            color: #86efac;
+            font-weight: bold;
+            margin-top: 14px;
+        }
+        .signup-error {
+            display: none;
+            background: #450a0a;
+            border: 1px solid #dc2626;
+            border-radius: 8px;
+            padding: 12px;
+            color: #fca5a5;
+            font-size: 13px;
+            margin-top: 10px;
+        }
+        .signup-count {
+            text-align: center;
+            color: #64748b;
+            font-size: 13px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Add to Home Screen Banner -->
+    <div class="install-banner" id="installBanner">
+        <div class="install-banner-content">
+            <div class="install-banner-icon">🦫</div>
+            <div class="install-banner-text">
+                <strong>Add to Home Screen</strong>
+                <small>Tap <strong>Share</strong> then <strong>"Add to Home Screen"</strong> for quick access!</small>
+            </div>
+        </div>
+        <button class="install-banner-close" onclick="dismissInstallBanner()" aria-label="Close">×</button>
+    </div>
+    
+    <div class="container">
+        <div class="header">
+            <div class="logo-container" id="logoContainer" style="display: none;">
+                <img id="tournamentLogo" alt="Tournament Logo">
+            </div>
+            <h1>🏒 Tournament Information</h1>
+            <div class="subtitle">Live Tournament Updates</div>
+            <div class="refresh-info">
+                <span style="color: #fef3c7;">⏱️ Auto-refreshes every 30 seconds</span>
+                <button class="refresh-button" onclick="loadAndDisplay()">🔄 Refresh Now</button>
+            </div>
+        </div>
+        
+        <div class="content">
+            <!-- Welcome Message -->
+            <div class="section" id="welcomeSection" style="display: none;">
+                <div class="info-box" id="welcomeContent">
+                    <!-- Welcome message content -->
+                </div>
+            </div>
+            
+            <!-- Important Information -->
+            <div class="section">
+                <h2>📢 Important Information</h2>
+                <div class="info-box" id="importantInfoContent">
+                    <p class="empty-state">No information available yet</p>
+                </div>
+            </div>
+
+            <!-- Player Sign Up (shown/hidden by admin) -->
+            <div class="signup-section" id="signupSection" style="display:none;">
+                <h2>🏒 Sign Up to Play</h2>
+                <p class="intro">Interested in joining the tournament? Fill in your details below and the organizer will be in touch.</p>
+
+                <div class="signup-grid">
+                    <div class="signup-field">
+                        <label for="su_name">Full Name *</label>
+                        <input type="text" id="su_name" placeholder="Your name" maxlength="80">
+                    </div>
+                    <div class="signup-field">
+                        <label for="su_phone">Phone Number *</label>
+                        <input type="tel" id="su_phone" placeholder="e.g. 902-555-0100" maxlength="30">
+                    </div>
+                    <div class="signup-field">
+                        <label for="su_age">Age *</label>
+                        <input type="number" id="su_age" placeholder="Your age" min="5" max="99">
+                    </div>
+                    <div class="signup-field">
+                        <label for="su_skill">Skill Level *</label>
+                        <select id="su_skill">
+                            <option value="">Select your level...</option>
+                            <option value="1.0">1.0 — Beginner</option>
+                            <option value="1.5">1.5</option>
+                            <option value="2.0">2.0 — Novice</option>
+                            <option value="2.5">2.5</option>
+                            <option value="3.0">3.0 — Intermediate</option>
+                            <option value="3.5">3.5</option>
+                            <option value="4.0">4.0 — Advanced</option>
+                            <option value="4.5">4.5</option>
+                            <option value="5.0">5.0 — Elite</option>
+                        </select>
+                    </div>
+                    <div class="signup-field">
+                        <label for="su_position">Preferred Position</label>
+                        <select id="su_position">
+                            <option value="">Select position...</option>
+                            <option value="Forward">⬆️ Forward</option>
+                            <option value="Defence">🛡️ Defence</option>
+                            <option value="Goalie">🥅 Goalie</option>
+                        </select>
+                    </div>
+                    <div class="signup-field">
+                        <label for="su_email">Email (optional)</label>
+                        <input type="email" id="su_email" placeholder="your@email.com" maxlength="100">
+                    </div>
+                </div>
+
+                <button class="signup-btn" id="signupSubmitBtn" onclick="submitSignup()">
+                    ✅ Submit Registration
+                </button>
+                <div class="signup-success" id="signupSuccess">
+                    <div>🎉 You're registered! The tournament organizer will be in touch soon.</div>
+                    <button onclick="resetSignupForm()"
+                        style="margin-top:14px;background:#fde047;color:#001f3f;border:none;padding:11px 24px;border-radius:8px;font-size:15px;font-weight:bold;cursor:pointer;width:100%;">
+                        ➕ Register Another Player
+                    </button>
+                </div>
+                <div class="signup-error" id="signupError"></div>
+                <p class="signup-count" id="signupCount"></p>
+            </div>
+            
+            <!-- Tournament Itinerary -->
+            <div class="section">
+                <h2>📅 Tournament Itinerary</h2>
+                <div class="info-box" id="itineraryContent">
+                    <p class="empty-state">Itinerary will be posted soon</p>
+                </div>
+            </div>
+            
+            <!-- Match Schedule -->
+            <div class="section">
+                <h2>🏒 Match Schedule</h2>
+                <div id="scheduleContainer">
+                    <p class="empty-state">Schedule will be posted soon</p>
+                </div>
+            </div>
+            
+            <!-- Team Standings -->
+            <div class="section">
+                <h2>📊 Team Standings</h2>
+                <div id="standingsContainer">
+                    <p class="empty-state">Standings will be updated after matches</p>
+                </div>
+            </div>
+            
+            <!-- Player Statistics -->
+            <div class="section">
+                <h2>⭐ Player Statistics</h2>
+                <div id="playerStatsContainer">
+                    <p class="empty-state">Player stats will be posted during tournament</p>
+                </div>
+            </div>
+            
+            <!-- Announcements -->
+            <div class="section">
+                <h2>📣 Announcements</h2>
+                <div id="announcementsContainer">
+                    <p class="empty-state">No announcements at this time</p>
+                </div>
+            </div>
+        </div>
+        
+
+        <div class="last-updated">
+            Last updated: <span id="lastUpdated">-</span>
+        </div>
+    </div>
+    
+
+    <!-- Photo Gallery Lightbox -->
+    <div id="galleryLightbox" onclick="closeLightbox(event)">
+        <span id="lightboxClose" onclick="closeLightboxDirect()">×</span>
+        <span id="lightboxPrev" onclick="lightboxNav(-1)">&#8249;</span>
+        <img id="lightboxImg" src="" alt="">
+        <p id="lightboxCaption"></p>
+        <span id="lightboxNext" onclick="lightboxNav(1)">&#8250;</span>
+    </div>
+
+    <script>
+        // Install banner management
+        function dismissInstallBanner() {
+            document.getElementById('installBanner').classList.add('hidden');
+            localStorage.setItem('installBannerDismissed', 'true');
+        }
+        
+        // Check if banner was previously dismissed
+        window.addEventListener('load', function() {
+            if (localStorage.getItem('installBannerDismissed') === 'true') {
+                document.getElementById('installBanner').classList.add('hidden');
+            }
+        });
+        
+        var FIREBASE_URL = 'https://hockey-tournament-dd737-default-rtdb.firebaseio.com/tournamentData.json';
+
+        var FIREBASE_SIGNUPS_URL = 'https://hockey-tournament-dd737-default-rtdb.firebaseio.com/signups.json';
+
+        function submitSignup() {
+            var name     = (document.getElementById('su_name').value  || '').trim();
+            var phone    = (document.getElementById('su_phone').value || '').trim();
+            var age      = (document.getElementById('su_age').value   || '').trim();
+            var skill    = (document.getElementById('su_skill').value || '').trim();
+            var position = (document.getElementById('su_position').value || '').trim();
+            var email    = (document.getElementById('su_email').value || '').trim();
+
+            var errEl = document.getElementById('signupError');
+            errEl.style.display = 'none';
+
+            if (!name)  { showSignupError('Please enter your name.'); return; }
+            if (!phone) { showSignupError('Please enter your phone number.'); return; }
+            if (!age || isNaN(age) || age < 5 || age > 99) { showSignupError('Please enter a valid age.'); return; }
+            if (!skill) { showSignupError('Please select a skill level.'); return; }
+
+            var btn = document.getElementById('signupSubmitBtn');
+            btn.disabled = true;
+            btn.textContent = 'Submitting...';
+
+            var entry = {
+                name: name,
+                phone: phone,
+                age: age,
+                skill: skill,
+                position: position || 'Not specified',
+                email: email || '',
+                timestamp: new Date().toLocaleString(),
+                status: 'pending'
+            };
+
+            // POST to Firebase (creates a new unique key each time)
+            fetch(FIREBASE_SIGNUPS_URL, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(entry)
+            })
+            .then(function(res) {
+                if (!res.ok) throw new Error('Server error ' + res.status);
+                return res.json();
+            })
+            .then(function() {
+                document.getElementById('signupSuccess').style.display = 'block';
+                btn.style.display = 'none';
+                // Clear form
+                ['su_name','su_phone','su_age','su_skill','su_position','su_email'].forEach(function(id){
+                    var el = document.getElementById(id);
+                    if (el) el.value = '';
+                });
+                loadSignupCount();
+            })
+            .catch(function(e) {
+                btn.disabled = false;
+                btn.textContent = '✅ Submit Registration';
+                showSignupError('Could not submit. Please check your connection and try again.');
+            });
+        }
+
+        function showSignupError(msg) {
+            var el = document.getElementById('signupError');
+            el.textContent = '⚠️ ' + msg;
+            el.style.display = 'block';
+        }
+
+        function resetSignupForm() {
+            // Hide success message, re-show submit button
+            document.getElementById('signupSuccess').style.display = 'none';
+            document.getElementById('signupError').style.display   = 'none';
+            var btn = document.getElementById('signupSubmitBtn');
+            btn.style.display  = 'block';
+            btn.disabled       = false;
+            btn.textContent    = '✅ Submit Registration';
+            // Clear all fields ready for next person
+            ['su_name','su_phone','su_age','su_skill','su_position','su_email'].forEach(function(id){
+                var el = document.getElementById(id);
+                if (el) el.value = '';
+            });
+            // Focus name field so user can start typing immediately
+            var nameField = document.getElementById('su_name');
+            if (nameField) nameField.focus();
+        }
+
+        function loadSignupCount() {
+            fetch(FIREBASE_SIGNUPS_URL)
+            .then(function(res) { return res.json(); })
+            .then(function(data) {
+                var count = data ? Object.keys(data).length : 0;
+                var el = document.getElementById('signupCount');
+                if (el && count > 0) {
+                    el.textContent = count + ' player' + (count !== 1 ? 's' : '') + ' signed up so far!';
+                }
+            })
+            .catch(function(){});
+        }
+
+        // Load count on page load
+        loadSignupCount();
+
+
+
+        // Load tournament data from Firebase (with localStorage fallback)
+        function loadTournamentData() {
+            return fetch(FIREBASE_URL)
+                .then(function(res) { return res.json(); })
+                .then(function(data) {
+                    if (data) {
+                        try { localStorage.setItem('tournamentData', JSON.stringify(data)); } catch(e) {}
+                    }
+                    return data;
+                })
+                .catch(function() {
+                    // Offline fallback
+                    try {
+                        var stored = localStorage.getItem('tournamentData');
+                        return stored ? JSON.parse(stored) : null;
+                    } catch(e) { return null; }
+                });
+        }
+        
+        // Convert text with bullets to HTML
+        function textToHtml(text) {
+            if (!text || !text.trim()) {
+                return '';
+            }
+            
+            var lines = text.split('\n');
+            var html = '';
+            
+            for (var i = 0; i < lines.length; i++) {
+                var line = lines[i].trim();
+                if (line.startsWith('•')) {
+                    html += '<p style="margin-left: 20px; margin: 8px 0;">• ' + line.substring(1).trim() + '</p>';
+                } else if (line) {
+                    html += '<p style="margin: 8px 0;">' + line + '</p>';
+                }
+            }
+            
+            return html || '<p class="empty-state">No content available</p>';
+        }
+        
+        // Calculate team standings
+        function calculateStandings(matchResults, teams) {
+            var standings = {};
+            
+            // Initialize standings for all teams
+            teams.forEach(function(team) {
+                standings[team.name] = {
+                    teamName: team.name,
+                    gp: 0,
+                    w: 0,
+                    l: 0,
+                    t: 0,
+                    gf: 0,
+                    ga: 0,
+                    pts: 0
+                };
+            });
+            
+            // Process match results
+            matchResults.forEach(function(result) {
+                if (standings[result.team1Name] && standings[result.team2Name]) {
+                    standings[result.team1Name].gp++;
+                    standings[result.team2Name].gp++;
+                    standings[result.team1Name].gf += result.team1Score;
+                    standings[result.team1Name].ga += result.team2Score;
+                    standings[result.team2Name].gf += result.team2Score;
+                    standings[result.team2Name].ga += result.team1Score;
+                    
+                    if (result.team1Score > result.team2Score) {
+                        standings[result.team1Name].w++;
+                        standings[result.team1Name].pts += 2;
+                        standings[result.team2Name].l++;
+                    } else if (result.team2Score > result.team1Score) {
+                        standings[result.team2Name].w++;
+                        standings[result.team2Name].pts += 2;
+                        standings[result.team1Name].l++;
+                    } else {
+                        standings[result.team1Name].t++;
+                        standings[result.team2Name].t++;
+                        standings[result.team1Name].pts += 1;
+                        standings[result.team2Name].pts += 1;
+                    }
+                }
+            });
+            
+            // Convert to array and sort
+            var standingsArray = Object.values(standings);
+            standingsArray.sort(function(a, b) {
+                if (b.pts !== a.pts) return b.pts - a.pts;
+                var diffA = a.gf - a.ga;
+                var diffB = b.gf - b.ga;
+                if (diffB !== diffA) return diffB - diffA;
+                return b.gf - a.gf;
+            });
+            
+            return standingsArray;
+        }
+        
+
+        // ── Gallery lightbox ─────────────────────────────────────────────────
+        var lightboxPhotos = [];
+        var lightboxIndex = 0;
+
+        function openLightbox(photos, index) {
+            lightboxPhotos = photos;
+            lightboxIndex = index;
+            showLightboxPhoto();
+            document.getElementById('galleryLightbox').classList.add('open');
+        }
+
+        function showLightboxPhoto() {
+            var p = lightboxPhotos[lightboxIndex];
+            document.getElementById('lightboxImg').src = p.dataUrl;
+            document.getElementById('lightboxCaption').textContent = p.caption || '';
+            document.getElementById('lightboxPrev').style.display = lightboxPhotos.length > 1 ? 'flex' : 'none';
+            document.getElementById('lightboxNext').style.display = lightboxPhotos.length > 1 ? 'flex' : 'none';
+        }
+
+        function lightboxNav(dir) {
+            lightboxIndex = (lightboxIndex + dir + lightboxPhotos.length) % lightboxPhotos.length;
+            showLightboxPhoto();
+        }
+
+        function closeLightbox(e) {
+            if (e.target === document.getElementById('galleryLightbox')) closeLightboxDirect();
+        }
+
+        function closeLightboxDirect() {
+            document.getElementById('galleryLightbox').classList.remove('open');
+        }
+
+        document.addEventListener('keydown', function(e) {
+            var lb = document.getElementById('galleryLightbox');
+            if (!lb.classList.contains('open')) return;
+            if (e.key === 'Escape') closeLightboxDirect();
+            if (e.key === 'ArrowLeft') lightboxNav(-1);
+            if (e.key === 'ArrowRight') lightboxNav(1);
+        });
+
+        // ── Render gallery in public view ────────────────────────────────────
+        function renderGallery(photos) {
+            var section = document.getElementById('gallerySection');
+            var grid = document.getElementById('galleryGrid');
+            var empty = document.getElementById('galleryEmpty');
+            if (!photos || !photos.length) {
+                section.style.display = 'none';
+                return;
+            }
+            section.style.display = 'block';
+            empty.style.display = 'none';
+            grid.innerHTML = photos.map(function(p, i) {
+                return '<div class="gallery-item" onclick="openLightbox(window._galleryPhotos,' + i + ')">' +
+                    '<img src="' + p.dataUrl + '" alt="' + (p.caption||'Photo') + '" loading="lazy">' +
+                    (p.caption ? '<div class="caption">' + p.caption + '</div>' : '') +
+                    '</div>';
+            }).join('');
+            window._galleryPhotos = photos;
+        }
+
+        // Display all tournament data
+        function loadAndDisplay() {
+            loadTournamentData().then(function(data) {
+                if (!data) { console.log('No tournament data found'); return; }
+                _cachedTournamentData = data;   // keep cache in sync
+                displayData(data);
+            });
+        }
+
+        function displayData(data) {
+            // Update last updated time
+            document.getElementById('lastUpdated').textContent = new Date().toLocaleString();
+            
+            // Display logo
+            if (data.tournamentLogo) {
+                document.getElementById('logoContainer').style.display = 'block';
+                document.getElementById('tournamentLogo').src = data.tournamentLogo;
+            } else {
+                document.getElementById('logoContainer').style.display = 'none';
+            }
+            
+            // Display welcome message
+            var welcomeMessage = data.welcomeMessage || {};
+            var welcomeSection = document.getElementById('welcomeSection');
+            var welcomeContent = document.getElementById('welcomeContent');
+            
+            if (welcomeMessage.message || welcomeMessage.directorName) {
+                var welcomeHTML = '';
+                if (welcomeMessage.message) {
+                    welcomeHTML += '<p style="font-size: 16px; margin-bottom: 15px;">' + welcomeMessage.message + '</p>';
+                }
+                if (welcomeMessage.directorName || welcomeMessage.directorPhone || welcomeMessage.directorEmail) {
+                    welcomeHTML += '<div style="margin-top: 15px; padding-top: 15px; border-top: 1px solid #ccc;">';
+                    welcomeHTML += '<p style="font-weight: bold; margin-bottom: 8px;">Tournament Director Contact:</p>';
+                    if (welcomeMessage.directorName) {
+                        welcomeHTML += '<p style="margin: 4px 0;">👤 ' + welcomeMessage.directorName + '</p>';
+                    }
+                    if (welcomeMessage.directorPhone) {
+                        welcomeHTML += '<p style="margin: 4px 0;">📞 ' + welcomeMessage.directorPhone + '</p>';
+                    }
+                    if (welcomeMessage.directorEmail) {
+                        welcomeHTML += '<p style="margin: 4px 0;">✉️ ' + welcomeMessage.directorEmail + '</p>';
+                    }
+                    welcomeHTML += '</div>';
+                }
+                welcomeContent.innerHTML = welcomeHTML;
+                welcomeSection.style.display = 'block';
+            } else {
+                welcomeSection.style.display = 'none';
+            }
+            
+            // Display important information
+            var importantInfo = data.importantInfo || {};
+            document.getElementById('importantInfoContent').innerHTML = 
+                textToHtml(importantInfo.content) || '<p class="empty-state">No information available yet</p>';
+            
+            // Display itinerary
+            var itineraryInfo = data.itineraryInfo || {};
+            document.getElementById('itineraryContent').innerHTML = 
+                textToHtml(itineraryInfo.content) || '<p class="empty-state">Itinerary will be posted soon</p>';
+            
+            // Display schedule
+            var scheduleMatches = data.scheduleMatches || [];
+            var scheduleHtml = '';
+            if (scheduleMatches.length > 0) {
+                scheduleHtml = '<table>';
+                scheduleHtml += '<thead><tr><th>Match</th><th>Teams</th><th>Date</th><th>Time</th><th>Location</th></tr></thead>';
+                scheduleHtml += '<tbody>';
+                scheduleMatches.forEach(function(match, i) {
+                    scheduleHtml += '<tr>';
+                    scheduleHtml += '<td><strong>Match ' + (i + 1) + '</strong></td>';
+                    scheduleHtml += '<td>' + match.team1Name + ' vs ' + match.team2Name + '</td>';
+                    scheduleHtml += '<td>' + (match.date || 'TBD') + '</td>';
+                    scheduleHtml += '<td>' + (match.time || 'TBD') + '</td>';
+                    scheduleHtml += '<td>' + (match.location || 'TBD') + '</td>';
+                    scheduleHtml += '</tr>';
+                });
+                scheduleHtml += '</tbody></table>';
+            } else {
+                scheduleHtml = '<p class="empty-state">Schedule will be posted soon</p>';
+            }
+            document.getElementById('scheduleContainer').innerHTML = scheduleHtml;
+            
+            // Display standings
+            var matchResults = data.matchResults || [];
+            var teams = data.teams || [];
+            var standingsHtml = '';
+            if (matchResults.length > 0 && teams.length > 0) {
+                var standings = calculateStandings(matchResults, teams);
+                standingsHtml = '<table>';
+                standingsHtml += '<thead><tr><th>Rank</th><th>Team</th><th>GP</th><th>W</th><th>L</th><th>T</th><th>GF</th><th>GA</th><th>Diff</th><th>Pts</th></tr></thead>';
+                standingsHtml += '<tbody>';
+                standings.forEach(function(team, i) {
+                    var diff = team.gf - team.ga;
+                    var rankClass = '';
+                    var medal = '';
+                    if (i === 0) {
+                        rankClass = 'rank-1';
+                        medal = '🥇 ';
+                    } else if (i === 1) {
+                        rankClass = 'rank-2';
+                        medal = '🥈 ';
+                    } else if (i === 2) {
+                        rankClass = 'rank-3';
+                        medal = '🥉 ';
+                    }
+                    
+                    standingsHtml += '<tr class="' + rankClass + '">';
+                    standingsHtml += '<td><strong>' + medal + (i + 1) + '</strong></td>';
+                    standingsHtml += '<td><strong>' + team.teamName + '</strong></td>';
+                    standingsHtml += '<td>' + team.gp + '</td>';
+                    standingsHtml += '<td>' + team.w + '</td>';
+                    standingsHtml += '<td>' + team.l + '</td>';
+                    standingsHtml += '<td>' + team.t + '</td>';
+                    standingsHtml += '<td>' + team.gf + '</td>';
+                    standingsHtml += '<td>' + team.ga + '</td>';
+                    standingsHtml += '<td>' + (diff >= 0 ? '+' : '') + diff + '</td>';
+                    standingsHtml += '<td><strong>' + team.pts + '</strong></td>';
+                    standingsHtml += '</tr>';
+                });
+                standingsHtml += '</tbody></table>';
+            } else {
+                standingsHtml = '<p class="empty-state">Standings will be updated after matches</p>';
+            }
+            document.getElementById('standingsContainer').innerHTML = standingsHtml;
+            
+            // Display player statistics
+            var playerStats = data.playerStats || [];
+            var statsHtml = '';
+            if (playerStats.length > 0) {
+                // Sort by points, then goals
+                var sortedStats = playerStats.slice().sort(function(a, b) {
+                    if (b.points !== a.points) return b.points - a.points;
+                    return b.goals - a.goals;
+                });
+                
+                statsHtml = '<table>';
+                statsHtml += '<thead><tr><th>Rank</th><th>Player</th><th>Goals</th><th>Assists</th><th>Points</th></tr></thead>';
+                statsHtml += '<tbody>';
+                sortedStats.forEach(function(stat, i) {
+                    var rankClass = '';
+                    var medal = '';
+                    if (i === 0) {
+                        rankClass = 'rank-1';
+                        medal = '🥇 ';
+                    } else if (i === 1) {
+                        rankClass = 'rank-2';
+                        medal = '🥈 ';
+                    } else if (i === 2) {
+                        rankClass = 'rank-3';
+                        medal = '🥉 ';
+                    }
+                    
+                    statsHtml += '<tr class="' + rankClass + '">';
+                    statsHtml += '<td><strong>' + medal + (i + 1) + '</strong></td>';
+                    statsHtml += '<td>' + stat.name + '</td>';
+                    statsHtml += '<td>' + stat.goals + '</td>';
+                    statsHtml += '<td>' + stat.assists + '</td>';
+                    statsHtml += '<td><strong>' + stat.points + '</strong></td>';
+                    statsHtml += '</tr>';
+                });
+                statsHtml += '</tbody></table>';
+            } else {
+                statsHtml = '<p class="empty-state">Player stats will be posted during tournament</p>';
+            }
+            document.getElementById('playerStatsContainer').innerHTML = statsHtml;
+            
+            // Display announcements
+            var announcements = data.announcements || [];
+            var announcementsHtml = '';
+            if (announcements.length > 0) {
+                announcements.forEach(function(ann) {
+                    announcementsHtml += '<div class="announcement">';
+                    announcementsHtml += '<h3>' + ann.title + '</h3>';
+                    announcementsHtml += '<div class="date">📅 ' + ann.date + '</div>';
+                    announcementsHtml += '<p>' + ann.content + '</p>';
+                    announcementsHtml += '</div>';
+                });
+            } else {
+                announcementsHtml = '<p class="empty-state">No announcements at this time</p>';
+            }
+            document.getElementById('announcementsContainer').innerHTML = announcementsHtml;
+            // Gallery
+            renderGallery(data.galleryPhotos || []);
+
+            // Show/hide signup form based on admin toggle
+            applySignupVisibility(data.signupFormVisible === true);
+        } // end displayData
+
+
+        // Fetch signup form visibility directly — works independently of tournament data
+        var FIREBASE_SIGNUP_FLAG_URL = 'https://hockey-tournament-dd737-default-rtdb.firebaseio.com/tournamentData/signupFormVisible.json';
+
+        function applySignupVisibility(visible) {
+            var el = document.getElementById('signupSection');
+            if (!el) return;
+            el.style.display = (visible === true) ? 'block' : 'none';
+        }
+
+        function fetchSignupVisibility() {
+            fetch(FIREBASE_SIGNUP_FLAG_URL)
+                .then(function(res) { return res.json(); })
+                .then(function(val) {
+                    applySignupVisibility(val === true);
+                })
+                .catch(function() {
+                    applySignupVisibility(false);
+                });
+        }
+
+        // Run immediately on page load
+        fetchSignupVisibility();
+
+        // Poll every 3 seconds — works whether stream is active or not
+        // (EventSource doesn't work on local file:// URLs)
+        setInterval(fetchSignupVisibility, 3000);
+
+        // Load data on page load
+        loadAndDisplay();
+
+        // Also poll full data every 10 seconds as fallback when stream unavailable
+        setInterval(loadAndDisplay, 10000);
+
+        // Real-time updates via Firebase streaming
+        // Keeps a local copy of tournament data so patch events can merge cleanly
+        var _cachedTournamentData = {};
+
+        function applyAndDisplay(data) {
+            _cachedTournamentData = data;
+            displayData(data);
+        }
+
+        function startFirebaseStream() {
+            var streamUrl = 'https://hockey-tournament-dd737-default-rtdb.firebaseio.com/tournamentData.json';
+            var source = new EventSource(streamUrl);
+
+            // 'put' fires on initial load and full data replacement
+            source.addEventListener('put', function(e) {
+                try {
+                    var payload = JSON.parse(e.data);
+                    // payload.data can be null if database is empty
+                    if (payload && payload.data && typeof payload.data === 'object') {
+                        applyAndDisplay(payload.data);
+                    }
+                } catch(err) { console.error('Stream put error:', err); }
+            });
+
+            // 'patch' fires when a single field is updated
+            source.addEventListener('patch', function(e) {
+                try {
+                    var payload = JSON.parse(e.data);
+                    if (!payload) return;
+                    var path  = payload.path || '/';
+                    var value = payload.data;
+                    if (path === '/' && value && typeof value === 'object') {
+                        applyAndDisplay(value);
+                    } else if (path !== '/') {
+                        var key = path.replace(/^\//, '');
+                        _cachedTournamentData[key] = value;
+                        // Handle signup visibility immediately without full re-render
+                        if (key === 'signupFormVisible') {
+                            applySignupVisibility(value === true);
+                        } else {
+                            displayData(_cachedTournamentData);
+                        }
+                    }
+                } catch(err) { console.error('Stream patch error:', err); }
+            });
+
+            source.onerror = function() {
+                source.close();
+                setTimeout(startFirebaseStream, 10000);
+            };
+        }
+        startFirebaseStream();
+    </script>
+</body>
+</html>
